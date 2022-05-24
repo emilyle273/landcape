@@ -11,7 +11,7 @@ import { NotificationManager } from 'react-notifications';
 import { authContext } from 'context/authContext';
 import { useRouter } from 'next/router';
 import withPrivateRoute from 'components/withPrivateRoute';
-// import { AuthProvider } from 'context/authContext';
+import Head from 'next/head'
 
 const Login = ({ setToken }: {setToken: Function}) => {
   const router = useRouter()
@@ -66,6 +66,10 @@ const Login = ({ setToken }: {setToken: Function}) => {
   };
 
   return (
+    <Head>
+        <title>Login</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
     <section className='md:max-w-[50%] mx-auto mt-[200px]'>
       <div className='mb-[30px]'>
         <Textbox

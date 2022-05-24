@@ -1,16 +1,21 @@
 import Container from './Container';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
   return <footer className='bg-black py-[50px]'>
     <Container className=' flex items-top justify-between'>
       <div>
         <Link href='/'>
-          <img
+          {/* <span className='inline-block relative'> */}
+          <Image
             src='https://skylandvietnam.vn/wp-content/uploads/2019/04/53026275_302570497072442_1683615377461870592_n.png'
             alt='logo'
             className='max-h-[83px]'
+            width="150px"
+            height='83px'
           />
+          {/* </span> */}
         </Link>
         <p className='text-white'>LANDCAPE - Real estate information</p>
         <p className='text-[10px] text-gray-500 py-2'>

@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import Container from './Container';
 import NavBar from './NavBar';
+import Image from 'next/image';
 
 const Header = () => {
   return (
@@ -24,11 +25,16 @@ const Header = () => {
           ]}
         />
         <Link href='/'>
-        <img
+          {/* <div className='h-[83px] w-auto relative'> */}
+          <Image
           src='https://skylandvietnam.vn/wp-content/uploads/2019/04/53026275_302570497072442_1683615377461870592_n.png'
           alt='logo'
-          className="max-h-[83px]"
+          // layout='fill'
+          width="150px"
+            height='83px'
         />
+          {/* </div> */}
+        
         </Link>
        
         <NavBar

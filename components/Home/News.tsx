@@ -10,8 +10,8 @@ const NewsItem = ({ news }: { news: News }) => {
           <Image
             alt={`main-image-${news?._id}`}
             src={news.images?.[0] as string}
-            width="112px"
-            height="112px"
+            width="112"
+            height="112"
           />
         </div>
         <div className='max-w-[229px]'>

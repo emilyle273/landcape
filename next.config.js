@@ -6,7 +6,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ['skylandvietnam.vn', 'res.cloudinary.com'],
+    domains: ['skylandvietnam.vn', 'res.cloudinary.com', 'toprealty.vn'],
   },
 }
 

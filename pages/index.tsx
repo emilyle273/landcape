@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
-import Header from 'components/Header'
 import Banner from 'components/Home/Banner'
-import NewsSection from 'components/Home/NewsSection'
 import ProjectSection from 'components/Home/ProjectsSection'
 import Layout from 'components/Layout'
 import { NextPage } from 'next'
 import { ReactElement } from 'react'
+
+import NewsSection from 'components/Home/NewsSection'
 
 const Home: NextPage = () => {
   return (

@@ -1,11 +1,12 @@
 import Container from "components/Container"
-import NewsList from "./NewsList"
 import Tabs from "./Tabs"
-import Filter from "./Filter"
 import { useState } from "react"
 import { useQuery } from "react-query"
 import { getNews } from "services/news"
+import loadable from '@loadable/component'
 
+const Filter = loadable(() => import('components/Home/Filter'))
+const NewsList = loadable(() => import('components/Home/NewsList'))
 
 const NewsSection = () => {
   const [search, setSearch] = useState({
@@ -48,11 +49,10 @@ const NewsSection = () => {
       </Container>
        <Container className=' bg-transparent pt-[60px]'>
          <div className=' bg-white p-6 rounded-[5px]'>
-         <NewsList
-          list={ data?.data?.news || []}
-        />
+          <NewsList
+            list={ data?.data?.news || []}
+          />
          </div>
-            
        </Container>
        
     </section>

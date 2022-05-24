@@ -1,0 +1,47 @@
+@tailwind base;
+
+@font-face {
+  font-family: "FontAwesome";
+  font-display: swap;
+  src: url("../public/fontawesome/fontawesome-webfont.eot") format("eot"),
+    url("../public/fontawesome/fontawesome-webfont.woff") format("woff"),
+    url("../public/fontawesome/fontawesome-webfont.woff2") format("woff2"),
+    url("../public/fontawesome/fontawesome-webfont.svg") format("svg");
+}
+
+@import "../public/fontawesome/css/font-awesome.min.css";
+
+@tailwind components;
+@tailwind utilities;
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.slp-hero-wrapper::before {
+  content: "";
+  position: absolute;
+  opacity: 0.3;
+  z-index: 10;
+  background-color: black;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;;
+  
+  // @layer absolute w-full h-full top-0 left-0 content-none z-10 bg-black opacity-30; 
+}

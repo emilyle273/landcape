@@ -15,11 +15,12 @@ const NewsSection = withConsignmentTab(({ onClickConsignment }: {onClickConsignm
     city: '48',
     district: '',
     ward: '',
+    q: ''
   });
   const { push } = useRouter();
 
   const { data } = useQuery(
-    ['GetNews', search?.city, search?.district, search?.ward],
+    ['GetNews', search?.city, search?.district, search?.ward, search?.q],
     () => getNews({ ...search })
   );
 

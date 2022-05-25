@@ -44,9 +44,8 @@ const NewsItem = ({ news }: { news: News }) => {
           </p>
         </div>
       </div>
-
       <span className='top-0 left-0 py-[3px] px-[6px] text-[10px] uppercase bg-red-500 text-white absolute rounded-[5px] block'>
-        Tin vip
+        Hot
       </span>
     </li>
   );

@@ -3,15 +3,17 @@ import Link from 'next/link'
 interface MenuProps {
   list: Array<{
     name: string,
-    url: string,
+    onClick: () => void,
+    url?: string
   }>
+  className?: string
 }
 
-const Menu = ({ list }: MenuProps) => {
-  return <ul className="flex justify-between w-[40%]">
+const Menu = ({ list, className }: MenuProps) => {
+  return <ul className={`flex w-[40%] ${className}`}>
       {list.map(item => (
-        <li className="black uppercase text-base" key={item.name}>
-          <Link href={item.url}>{item.name}</Link>
+        <li className="cursor-pointer black uppercase text-base mx-[20px]" key={item.name} onClick={item?.onClick}>
+          {item.name}
         </li>
       ))}
   </ul>

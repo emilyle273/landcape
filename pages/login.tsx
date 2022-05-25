@@ -26,7 +26,11 @@ const Login = ({ setToken }: { setToken: Function }) => {
     onSuccess: (res) => {
       setToken?.(res?.data?.data?.token as string);
       setLocalStorage('accessToken', res?.data?.data?.token);
-      router.push('/admin/dashboard');
+      if(!!router?.query?.referer) {
+        router.push(router?.query?.referer, '', { shallow: true});
+        return
+      }
+      router.push('/', '', { shallow: true});
     },
   });
 

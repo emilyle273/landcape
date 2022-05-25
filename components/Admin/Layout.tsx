@@ -8,7 +8,7 @@ const Header = () => {
   const handleLogout = async() => {
     await deleteLocalStorage('accessToken')
 
-    route.push('/login')
+    route.push('/', '', { shallow: true })
   }
 
   return (

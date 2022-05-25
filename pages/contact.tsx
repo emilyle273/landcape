@@ -1,18 +1,12 @@
-import Banner from 'components/Home/Banner'
-import ProjectSection from 'components/Home/ProjectsSection'
 import Layout from 'components/Layout'
 import { NextPage } from 'next'
 import { ReactElement } from 'react'
 
-import NewsSection from 'components/Home/NewsSection'
+import ContactUs from 'components/ContactUs'
 
 const Home: NextPage = () => {
   return (
-    <>
-      <Banner />
-      <NewsSection />
-      <ProjectSection />
-    </>
+    <ContactUs />
   )
 }
 

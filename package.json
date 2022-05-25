@@ -28,7 +28,8 @@
     "react-query": "^3.38.0",
     "react-upload-gallery": "^0.4.0",
     "sass": "^1.50.1",
-    "tailwindcss": "^3.0.24"
+    "tailwindcss": "^3.0.24",
+    "use-debounce": "^8.0.1"
   },
   "devDependencies": {
     "@types/google-map-react": "^2.1.5",

@@ -1,10 +1,46 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 import Container from './Container';
 import NavBar from './NavBar';
 import Image from 'next/image';
+import { useContext, useState } from 'react';
+import { authContext } from 'context/authContext';
+import { deleteLocalStorage } from 'services/localstorage';
+import { useRouter } from 'next/router';
+import withConsignmentTab from './withConsignmentTab';
 
-const Header = () => {
+const Header = ({ onClickConsignment, setAccessToken, accessToken}) => {
+  const { push } = useRouter();
+
+  const navs = [
+    {
+      name: 'Contact us',
+      onClick:() => {
+        push('/contact')
+      },
+      url: '/contact'
+    },
+    ...(accessToken
+      ? [
+          {
+            name: 'Logout',
+            onClick: () => {
+              setAccessToken('');
+              deleteLocalStorage('accessToken');
+              push('/');
+            },
+          },
+        ]
+      : [
+          {
+            name: 'Login',
+            onClick: () => {
+              push('/login');
+            },
+          },
+        ]),
+  ];
+
   return (
     <header className='h-[83px]'>
       <Container className=' flex items-center justify-between'>
@@ -12,51 +48,32 @@ const Header = () => {
           list={[
             {
               name: 'Home',
-              url: '/',
-            },
-            {
-              name: 'buy and sell land',
-              url: '/selling',
-            },
-            {
-              name: 'Lease',
-              url: '/selling',
-            },
-          ]}
-        />
-        <Link href='/'>
-          {/* <div className='h-[83px] w-auto relative'> */}
-          <Image
-          src='https://skylandvietnam.vn/wp-content/uploads/2019/04/53026275_302570497072442_1683615377461870592_n.png'
-          alt='logo'
-          // layout='fill'
-          width="150px"
-            height='83px'
-        />
-          {/* </div> */}
-        
-        </Link>
-       
-        <NavBar
-          list={[
-            {
-              name: 'Project',
-              url: '/',
-            },
-            
-            {
-              name: 'Consignment',
+              onClick: () => {
+                push('/');
+              },
               url: '/'
             },
             {
-              name: 'Contact us',
-              url: '/contact',
+              name: 'Consignment',
+              onClick: onClickConsignment,
+              url: '/consignment'
             },
+            
           ]}
+          className='justify-start'
         />
+        <Link href='/'>
+          <Image
+            src='https://skylandvietnam.vn/wp-content/uploads/2019/04/53026275_302570497072442_1683615377461870592_n.png'
+            alt='logo'
+            width='150px'
+            height='83px'
+          />
+        </Link>
+        <NavBar className='justify-end' list={navs} />
       </Container>
     </header>
   );
 };
 
-export default Header;
+export default withConsignmentTab(Header);

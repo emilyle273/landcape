@@ -15,7 +15,8 @@ export interface News {
     city: string
     district: string
     ward: string
-  }
+  },
+  addressInString: string,
 }
 
 export interface Option {

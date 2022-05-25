@@ -120,15 +120,20 @@ const AddNews = () => {
       return;
     }
     const { lat, lng } = mapRef?.current?.location || {};
+    const { district, ward} = address
+    const districtStr = districts.find((item:Option) => item?.value === district)?.name
+    const wardStr = wards.find((item:Option) => item?.value === ward)?.name
+
     mutate({
       title: values?.title,
       images: images?.map((item) => item?.file),
       city: address?.city,
-      district: address?.district,
-      ward: address?.ward,
+      district,
+      ward,
       lat,
       lng,
       description: values?.description,
+      addressInString: `${wardStr} - ${districtStr}`
     });
   };
 

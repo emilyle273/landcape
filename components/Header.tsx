@@ -9,7 +9,7 @@ import { deleteLocalStorage } from 'services/localstorage';
 import { useRouter } from 'next/router';
 import withConsignmentTab from './withConsignmentTab';
 
-const Header = ({ onClickConsignment, setAccessToken, accessToken}) => {
+const Header = ({ onClickConsignment, setAccessToken, accessToken}: {onClickConsignment?: () => void, setAccessToken: (s: string) => void, accessToken: string}) => {
   const { push } = useRouter();
 
   const navs = [

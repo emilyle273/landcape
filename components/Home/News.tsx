@@ -33,14 +33,14 @@ const NewsItem = ({ news }: { news: News }) => {
           <p className='text-xs'>{news.description}</p>
           <p className='flex text-[10px] text-orange-400 flex-wrap justify-between items-center'>
             <span className='flex items-center'>
-              <Image src='/icons/price.svg' width="20" height="20"/>
+              <Image src='/icons/price.svg' width="20" height="20" alt="price-icon"/>
               {formatter.format(news.price)}
             </span>
             <span className='flex items-center'>
-              <Image src='/icons/land.svg' width="20" height="20"/>
+              <Image src='/icons/land.svg' width="20" height="20" alt="acreage-icon"/>
               {news.acreage} m2
             </span>
-            <span className='flex items-center'><Image src='/icons/map.svg' width="20" height="20"/>{news.addressInString}</span>
+            <span className='flex items-center'><Image src='/icons/map.svg' width="20" height="20"  alt="map-icon"/>{news.addressInString}</span>
           </p>
         </div>
       </div>

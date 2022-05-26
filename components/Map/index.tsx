@@ -1,5 +1,7 @@
 import React, { Component, useState, useCallback, forwardRef, useImperativeHandle } from 'react';
-import GoogleMapReact from 'google-map-react';
+import loadable from '@loadable/component';
+
+const GoogleMapReact = loadable(() => import('google-map-react'));
 
 const GoogleMap = ({ location, draggable }, ref) => {
   const [center, setCenter] = useState({

@@ -1,19 +1,7 @@
 @tailwind base;
 
-@font-face {
-  font-family: "FontAwesome";
-  font-display: swap;
-  src: url("../public/fontawesome/fontawesome-webfont.eot") format("eot"),
-    url("../public/fontawesome/fontawesome-webfont.woff") format("woff"),
-    url("../public/fontawesome/fontawesome-webfont.woff2") format("woff2"),
-    url("../public/fontawesome/fontawesome-webfont.svg") format("svg");
-}
-
-@import "../public/fontawesome/css/font-awesome.min.css";
-
 @tailwind components;
 @tailwind utilities;
-
 
 html,
 body {

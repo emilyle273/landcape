@@ -11,9 +11,9 @@ import Head from 'next/head';
 
 const Consignment: NextPage = withPrivateRoute(() => {
   const { push } = useRouter()
-  // useEffect(() => {
-  //   document.addEventListener('touchstart', () => {}, {passive: true});
-  // }, [])
+  useEffect(() => {
+    document.addEventListener('touchstart', () => {}, {passive: true});
+  }, [])
   return (
     <>
       <Head>

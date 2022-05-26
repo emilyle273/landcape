@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 interface MenuProps {
   list: Array<{
@@ -10,9 +11,11 @@ interface MenuProps {
 }
 
 const Menu = ({ list, className }: MenuProps) => {
+  const { pathname } = useRouter()
+
   return <ul className={`flex w-[40%] ${className}`}>
       {list.map(item => (
-        <li className="cursor-pointer black uppercase text-base mx-[20px]" key={item.name} onClick={item?.onClick}>
+        <li className={`cursor-pointer black uppercase text-base mx-[20px] ${pathname === item.url ? 'text-blue-300' : ''}`} key={item.name} onClick={item?.onClick}>
           {item.name}
         </li>
       ))}

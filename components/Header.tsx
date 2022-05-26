@@ -3,8 +3,6 @@ import Link from 'next/link';
 import Container from './Container';
 import NavBar from './NavBar';
 import Image from 'next/image';
-import { useContext, useState } from 'react';
-import { authContext } from 'context/authContext';
 import { deleteLocalStorage } from 'services/localstorage';
 import { useRouter } from 'next/router';
 import withConsignmentTab from './withConsignmentTab';

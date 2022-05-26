@@ -20,7 +20,7 @@ const Consignment: NextPage = withPrivateRoute(() => {
         <title>Consignment</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta property="og:title" content="Consignment" key="title" />
-        <meta property="og:desciption" content="Consignment" key="desciption" />
+        <meta property="og:description" content="Consignment" key="description" />
       </Head>
       <Banner />
       <section className='bg-gray-200 relative w-full pb-[30px]'>

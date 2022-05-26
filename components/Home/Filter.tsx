@@ -63,7 +63,7 @@ const Filter = ({ onSearch } : {onSearch: Function}) => {
           <option value={item.value} key={item.value}>{item.label}</option>
         ))}
       </select>
-      <button className="bg-orange-400 uppercase text-white w-[105px] h-[30px] rounded-[5px]" onClick={() => onSearch({city, district: currentDist, ward, q})}>Search</button>
+      <button className="bg-orange-700 uppercase text-white w-[105px] h-[30px] rounded-[5px]" onClick={() => onSearch({city, district: currentDist, ward, q})}>Search</button>
     </div>
   </div>
 }

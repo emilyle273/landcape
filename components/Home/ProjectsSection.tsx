@@ -41,7 +41,7 @@ const ProjectSection = () => {
                 </span>
               </div>
               <h3 className='uppercase py-[25px] px-2'>{item.title}</h3>
-              <p className='border-t border-gray-400 py-3 text-[10px] text-orange-400'>
+              <p className='border-t border-gray-400 py-3 text-[10px] text-orange-700'>
                 <Link href={`/news/${item?.id}`}>See details</Link>
               </p>
             </li>

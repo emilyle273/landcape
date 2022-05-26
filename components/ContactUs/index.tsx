@@ -23,7 +23,7 @@ const ContactUs = () => {
           <div className='mb-[30px]'>
             <Textarea placeholder='Note' />
           </div>
-          <button className='bg-orange-400 uppercase text-white w-[105px] h-[30px] rounded-[5px]'>
+          <button className='bg-orange-700 uppercase text-white w-[105px] h-[30px] rounded-[5px]'>
             Send
           </button>
         </Container>

@@ -7,6 +7,7 @@ import Banner from 'components/Home/Banner';
 import Container from 'components/Container';
 import Tabs from 'components/Home/Tabs';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 const Consignment: NextPage = withPrivateRoute(() => {
   const { push } = useRouter()
@@ -15,6 +16,12 @@ const Consignment: NextPage = withPrivateRoute(() => {
   // }, [])
   return (
     <>
+      <Head>
+        <title>Consignment</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content="Consignment" key="title" />
+        <meta property="og:desciption" content="Consignment" key="desciption" />
+      </Head>
       <Banner />
       <section className='bg-gray-200 relative w-full pb-[30px]'>
         <Container className=' z-[11] absolute left-[50%] top-[-100px] translate-x-[-50%]'>

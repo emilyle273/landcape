@@ -79,7 +79,7 @@ const Signup = () => {
         <p className='text-[red]'>{errors?.password}</p>
       </div>
       <button
-        className='bg-orange-400 uppercase text-white w-full h-[40px] rounded-[5px]'
+        className='bg-orange-700 uppercase text-white w-full h-[40px] rounded-[5px]'
         onClick={handleSignup}
       >
         Signup
@@ -87,7 +87,7 @@ const Signup = () => {
       <p className='mt-[10px] text-right !text-gray-800'>
         Have a account,{' '}
         <Link href='/login'>
-          <span className='!text-orange-400'>Signin</span>
+          <span className='!text-orange-700'>Signin</span>
         </Link>{' '}
       </p>
     </section>

@@ -19,18 +19,18 @@ const Footer = () => {
         </Link>
         <p className='text-white'>LANDCAPE - Real estate information</p>
         <p className='text-[10px] text-gray-500 py-2'>
-          <i className='fa-light fa-phone text-orange-400'></i>Office: Da Nang
+          <i className='fa-light fa-phone text-orange-700'></i>Office: Da Nang
         </p>
         <p className='text-[10px] text-gray-500 py-2'>
-          <i className='fa-light fa-phone text-orange-400'></i>Hotline: +84
+          <i className='fa-light fa-phone text-orange-700'></i>Hotline: +84
           906116559
         </p>
         <p className='text-[10px] text-gray-500 py-2'>
-          <i className='fa-light fa-envelop text-orange-400'></i>Email:
+          <i className='fa-light fa-envelop text-orange-700'></i>Email:
           doanlinh@gmail.com
         </p>
         <p className='text-[10px] text-gray-500 py-2'>
-          <i className='fa-light fa-globe text-orange-400'></i>Website:
+          <i className='fa-light fa-globe text-orange-700'></i>Website:
           https://landcape.com
         </p>
       </div>
@@ -64,7 +64,7 @@ const Footer = () => {
           className='pl-3 mb-3 text-[10px] w-[258px] rounded-[4px] text-gray-800 placeholder-gray-500 bg-white'
           placeholder='Phone'
         />
-        <button className='text-xs text-white rounded-[5px] bg-orange-400 w-[90px] h-[30px]'>
+        <button className='text-xs text-white rounded-[5px] bg-orange-700 w-[90px] h-[30px]'>
           Send out
         </button>
       </div>

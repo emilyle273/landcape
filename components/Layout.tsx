@@ -9,6 +9,8 @@ export default function Layout({ children }: { children: ReactNode}) {
       <Head>
         <title>Skyland</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content="Skyland" key="title" />
+        <meta property="og:desciption" content="Skyland" key="title" />
       </Head>
       <Header />
       <main>{children}</main>

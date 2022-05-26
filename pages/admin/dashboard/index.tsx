@@ -55,7 +55,7 @@ const Dashboard = () => {
                 </td>
                 <td>
                   <button
-                    className='bg-orange-400 uppercase text-white w-[60px] h-[40px] rounded-[5px]'
+                    className='bg-orange-700 uppercase text-white w-[60px] h-[40px] rounded-[5px]'
                     onClick={() => {
                       push(`/admin/dashboard/edit-news/${item?._id}`);
                     }}

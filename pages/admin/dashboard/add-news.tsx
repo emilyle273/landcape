@@ -225,7 +225,7 @@ const AddNews = () => {
           />
         )}
         <button
-          className='mt-[30px] bg-orange-400 uppercase text-white w-full h-[40px] rounded-[5px]'
+          className='mt-[30px] bg-orange-700 uppercase text-white w-full h-[40px] rounded-[5px]'
           onClick={handleSubmit}
         >
           {isLoading ? <Spinner /> : 'Submit'}

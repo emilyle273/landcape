@@ -73,7 +73,9 @@ const Login = ({ setToken }: { setToken: Function }) => {
       <Head>
         <title>Login</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <meta name='og:title' content='Login page' />
       </Head>
+      
       <section className='md:max-w-[50%] mx-auto mt-[200px]'>
         <div className='mb-[30px]'>
           <Textbox
@@ -96,7 +98,7 @@ const Login = ({ setToken }: { setToken: Function }) => {
         </div>
 
         <button
-          className='bg-orange-400 uppercase text-white w-full h-[40px] rounded-[5px]'
+          className='bg-orange-700 uppercase text-white w-full h-[40px] rounded-[5px]'
           onClick={handleLogin}
         >
           {isLoading ? <Spinner /> : 'Login'}
@@ -104,7 +106,7 @@ const Login = ({ setToken }: { setToken: Function }) => {
         <p className='mt-[10px] text-right !text-gray-800'>
           Don&apos;t have a account{' '}
           <Link href='/signup'>
-            <span className='!text-orange-400'>Signup</span>
+            <span className='!text-orange-700'>Signup</span>
           </Link>{' '}
         </p>
       </section>

@@ -16,7 +16,7 @@ const GoogleMap = ({ location, draggable }, ref) => {
       draggable,
     });
 
-    maps.event.addListener(marker, 'drag', () => onDragMarket(marker)) 
+    maps.event.addListener(marker, 'drag', () => onDragMarket(marker), { passive: true }) 
   };
 
   useImperativeHandle(ref, () => ({

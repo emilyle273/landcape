@@ -31,7 +31,7 @@ const NewsItem = ({ news }: { news: News }) => {
             <span className='pr-[20px]'>{news.createAt}</span>
           </p>
           <p className='text-xs'>{news.description}</p>
-          <p className='flex text-[10px] text-orange-400 flex-wrap justify-between items-center'>
+          <p className='flex text-[10px] text-orange-700 flex-wrap justify-between items-center'>
             <span className='flex items-center'>
               <Image src='/icons/price.svg' width="20" height="20" alt="price-icon"/>
               {formatter.format(news.price)}

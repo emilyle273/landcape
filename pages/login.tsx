@@ -73,7 +73,8 @@ const Login = ({ setToken }: { setToken: Function }) => {
       <Head>
         <title>Login</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-        <meta name='og:title' content='Login page' />
+        <meta name='og:title' content='Login' />
+        <meta name='og:description' content='Login page' />
       </Head>
       
       <section className='md:max-w-[50%] mx-auto mt-[200px]'>

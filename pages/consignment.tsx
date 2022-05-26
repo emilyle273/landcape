@@ -1,6 +1,6 @@
 import Main from 'components/Consignment';
 import withPrivateRoute from 'components/withPrivateRoute';
-import { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { NextPage } from 'next';
 import Layout from 'components/Layout';
 import Banner from 'components/Home/Banner';
@@ -10,6 +10,9 @@ import { useRouter } from 'next/router';
 
 const Consignment: NextPage = withPrivateRoute(() => {
   const { push } = useRouter()
+  // useEffect(() => {
+  //   document.addEventListener('touchstart', () => {}, {passive: true});
+  // }, [])
   return (
     <>
       <Banner />
@@ -47,7 +50,7 @@ Consignment.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
 
-export async function getServerSideProps({ req, res }) {
+export async function getInitialProps({ req, res }) {
   res.setHeader(
     'Cache-Control',
     'public, s-maxage=10, stale-while-revalidate=59'

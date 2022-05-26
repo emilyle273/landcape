@@ -210,7 +210,7 @@ const Consignment = () => {
           />
           <p className='text-[red]'>{errors?.title}</p>
         </div>
-        {((!!id && values?.location) || !id) && (
+        {/* {((!!id && values?.location) || !id) && (
           <Map
             draggable
             ref={mapRef}
@@ -220,7 +220,7 @@ const Consignment = () => {
                 : { lat: 16.004896075277347, lng: 108.19869219726561 }
             }
           />
-        )}
+        )} */}
         <button
           className='mt-[30px] bg-orange-400 uppercase text-white w-full h-[40px] rounded-[5px]'
           onClick={handleSubmit}

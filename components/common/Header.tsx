@@ -5,7 +5,7 @@ import NavBar from './NavBar';
 import Image from 'next/image';
 import { deleteLocalStorage } from 'services/localstorage';
 import { useRouter } from 'next/router';
-import withConsignmentTab from './withConsignmentTab';
+import withConsignmentTab from 'hocs/withConsignmentTab';
 
 const Header = ({ onClickConsignment, setAccessToken, accessToken}: {onClickConsignment?: () => void, setAccessToken: (s: string) => void, accessToken: string}) => {
   const { push } = useRouter();

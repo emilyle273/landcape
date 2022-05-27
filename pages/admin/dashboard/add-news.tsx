@@ -1,18 +1,18 @@
 import { useEffect, useMemo, useState, useRef } from 'react';
 import { useQuery, useMutation } from 'react-query';
 import { getDistricts } from 'services/address';
-import Textbox from 'components/Textbox';
+import Textbox from 'components/common/Textbox';
 import { Option, News } from 'types';
-import Spinner from 'components/Spinner';
-import Uploader from 'components/Uploader';
+import Spinner from 'components/common/Spinner';
+import Uploader from 'components/common/Uploader';
 import { NotificationManager } from 'react-notifications';
 import { addNews, getNewsById, editNews } from 'services/news';
 
-import withPrivateRoute from 'components/withPrivateRoute';
-import Textarea from 'components/Textarea';
-import Map from 'components/Map';
+import withPrivateRoute from 'hocs/withPrivateRoute';
+import Textarea from 'components/common/Textarea';
+import Map from 'components/common/Map';
 import { useRouter } from 'next/router';
-import Header from 'components/Admin/Layout';
+import Header from 'components/admin/Layout';
 
 const AddNews = () => {
   const mapRef = useRef(null);

@@ -1,14 +1,14 @@
-import Container from 'components/Container';
+import Container from 'components/common/Container';
 import Tabs from './Tabs';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { getNews } from 'services/news';
 import loadable from '@loadable/component';
 import { useRouter } from 'next/router';
-import withConsignmentTab from 'components/withConsignmentTab';
+import withConsignmentTab from 'hocs/withConsignmentTab';
 
-const Filter = loadable(() => import('components/Home/Filter'));
-const NewsList = loadable(() => import('components/Home/NewsList'));
+const Filter = loadable(() => import('components/home/Filter'));
+const NewsList = loadable(() => import('components/home/NewsList'));
 
 const NewsSection = withConsignmentTab(({ onClickConsignment }: {onClickConsignment?: () => void}) => {
   const [search, setSearch] = useState({

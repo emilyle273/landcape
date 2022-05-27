@@ -1,7 +1,7 @@
 
 import { deleteLocalStorage } from "services/localstorage";
 import { useRouter } from "next/router";
-import Container from "components/Container";
+import Container from "components/common/Container";
 
 const Header = () => {
   const route = useRouter()

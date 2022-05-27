@@ -1,10 +1,9 @@
-import Banner from 'components/Home/Banner'
-import ProjectSection from 'components/Home/ProjectsSection'
-import Layout from 'components/Layout'
+import Banner from 'components/home/Banner'
+import ProjectSection from 'components/home/ProjectsSection'
+import Layout from 'components/common/Layout'
 import { NextPage } from 'next'
 import { ReactElement } from 'react'
-
-import NewsSection from 'components/Home/NewsSection'
+import NewsSection from 'components/home/NewsSection'
 
 const Home: NextPage = () => {
   return (

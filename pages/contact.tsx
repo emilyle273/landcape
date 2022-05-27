@@ -1,8 +1,8 @@
-import Layout from 'components/Layout'
+import Layout from 'components/common/Layout'
 import { NextPage } from 'next'
 import { ReactElement } from 'react'
 
-import ContactUs from 'components/ContactUs'
+import ContactUs from 'components/contact-us'
 
 const Home: NextPage = () => {
   return (

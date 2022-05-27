@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
-import Layout from 'components/Layout'
+import Layout from 'components/common/Layout'
 import { NextPage } from 'next'
 import { ReactElement } from 'react'
-import Main from "components/Details"
+import Main from "components/details"
 import { getNewsById } from 'services/news'
 import { useRouter } from 'next/router'
 import { useQuery } from 'react-query'

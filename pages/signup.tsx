@@ -1,4 +1,4 @@
-import Textbox from 'components/Textbox';
+import Textbox from 'components/common/Textbox';
 import { useState } from 'react';
 import Link from 'next/link';
 import { User } from 'types';

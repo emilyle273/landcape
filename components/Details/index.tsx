@@ -1,7 +1,7 @@
-import Container from "components/Container"
+import Container from "components/common/Container"
 import Banner from './Banner'
 import { News } from "types"
-import Map from 'components/Map'
+import Map from 'components/common/Map'
 
 const Details = ({ land } : { land: News }) => {
 

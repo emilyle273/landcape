@@ -1,4 +1,4 @@
-import Container from '../Container';
+import Container from '../common/Container';
 import Link from 'next/link';
 import Image from 'next/image'
 

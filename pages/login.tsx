@@ -1,15 +1,15 @@
-import Textbox from 'components/Textbox';
+import Textbox from 'components/common/Textbox';
 import { useState, useContext } from 'react';
 import Link from 'next/link';
 import { User } from 'types';
 import { useMutation } from 'react-query';
 import { login } from 'services/auth';
 import { setLocalStorage } from 'services/localstorage';
-import Spinner from 'components/Spinner';
+import Spinner from 'components/common/Spinner';
 
 import { NotificationManager } from 'react-notifications';
 import { useRouter } from 'next/router';
-import withPrivateRoute from 'components/withPrivateRoute';
+import withPrivateRoute from 'hocs/withPrivateRoute';
 import Head from 'next/head';
 
 const Login = ({ setToken }: { setToken: Function }) => {

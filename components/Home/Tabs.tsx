@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
-import { authContext } from 'context/authContext';
 
 interface TabsProps {
   list: Array<{

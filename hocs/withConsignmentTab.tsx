@@ -1,7 +1,7 @@
 import React, { FC, useContext, useState } from 'react';
 import { authContext } from 'context/authContext';
 import { useRouter } from 'next/router';
-import Modal from './Modal';
+import Modal from '../components/common/Modal';
 
 const withConsignmentTab = <Props extends Record<string, unknown>>(
   Component: React.ComponentType<Props>

@@ -1,15 +1,15 @@
 import { useEffect, useMemo, useState, useRef } from 'react';
 import { useQuery, useMutation } from 'react-query';
 import { getDistricts } from 'services/address';
-import Textbox from 'components/Textbox';
+import Textbox from 'components/common/Textbox';
 import { Option, News } from 'types';
-import Spinner from 'components/Spinner';
-import Uploader from 'components/Uploader';
+import Spinner from 'components/common/Spinner';
+import Uploader from 'components/common/Uploader';
 import { NotificationManager } from 'react-notifications';
 import { addNews, getNewsById, editNews } from 'services/news';
 
-import Textarea from 'components/Textarea';
-import Map from 'components/Map';
+import Textarea from 'components/common/Textarea';
+import Map from 'components/common/Map';
 import { useRouter } from 'next/router';
 
 const Consignment = () => {

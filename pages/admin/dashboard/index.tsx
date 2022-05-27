@@ -1,12 +1,12 @@
 import { useQuery } from 'react-query';
-import Filter from 'components/Home/Filter';
+import Filter from 'components/home/Filter';
 import { News } from 'types';
 import { getNews } from 'services/news';
 import { useState } from 'react';
-import Container from 'components/Container';
+import Container from 'components/common/Container';
 import { useRouter } from 'next/router';
-import Header from 'components/Admin/Layout';
-import withPrivateRoute from 'components/withPrivateRoute';
+import Header from 'components/admin/Layout';
+import withPrivateRoute from 'hocs/withPrivateRoute';
 
 const Dashboard = () => {
   const { push } = useRouter();

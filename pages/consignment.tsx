@@ -1,11 +1,11 @@
-import Main from 'components/Consignment';
-import withPrivateRoute from 'components/withPrivateRoute';
+import Main from 'components/consignment';
+import withPrivateRoute from 'hocs/withPrivateRoute';
 import { ReactElement, useEffect } from 'react';
 import { NextPage } from 'next';
-import Layout from 'components/Layout';
-import Banner from 'components/Home/Banner';
-import Container from 'components/Container';
-import Tabs from 'components/Home/Tabs';
+import Layout from 'components/common/Layout';
+import Banner from 'components/home/Banner';
+import Container from 'components/common/Container';
+import Tabs from 'components/home/Tabs';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
@@ -57,7 +57,7 @@ Consignment.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
 
-export async function getInitialProps({ req, res }) {
+export async function getServerSideProps({ req, res}) {
   res.setHeader(
     'Cache-Control',
     'public, s-maxage=10, stale-while-revalidate=59'

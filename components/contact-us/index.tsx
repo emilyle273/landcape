@@ -1,7 +1,7 @@
-import Container from 'components/Container';
-import Textbox from 'components/Textbox';
-import Textarea from 'components/Textarea';
-import Banner from 'components/Details/Banner';
+import Container from 'components/common/Container';
+import Textbox from 'components/common/Textbox';
+import Textarea from 'components/common/Textarea';
+import Banner from 'components/details/Banner';
 
 const ContactUs = () => {
   return (

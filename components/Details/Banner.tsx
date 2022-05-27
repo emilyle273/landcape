@@ -1,5 +1,3 @@
-import Image from "next/image"
-
 const Banner = ({title}: { title: string}) => {
   return <section className='bg-black h-[200px] w-[100vw] banner'>
       {/* <Image alt="details-banner" height="200" width="1440" className='absolute top-0 left-0 w-full h-full object-cover' src='https://skylandvietnam.vn/wp-content/uploads/2018/02/simcity-premier-homes2.jpg'/> */}

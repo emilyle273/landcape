@@ -1,8 +1,9 @@
+import { NextPage } from 'next';
+import { ReactElement } from 'react';
+
 import Banner from 'containers/Home/Banner';
 import ProjectSection from 'containers/Home/ProjectsSection';
 import Layout from 'components/Layout';
-import { NextPage } from 'next';
-import { ReactElement } from 'react';
 
 import NewsSection from 'containers/Home/NewsSection';
 

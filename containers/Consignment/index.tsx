@@ -119,7 +119,7 @@ const Consignment = () => {
       return;
     }
     const { lat, lng } = mapRef?.current?.location || {};
-    const { district, ward} = address
+    const { district, ward } = address
     const districtStr = districts.find((item:Option) => item?.value === +district)?.label
     const wardStr = wards.find((item:Option) => item?.value === +ward)?.label
 
@@ -132,7 +132,9 @@ const Consignment = () => {
       lat,
       lng,
       description: values?.description,
-      addressInString: `${wardStr} - ${districtStr}`
+      addressInString: `${wardStr} - ${districtStr}`,
+      price: values?.price,
+      acreage: values?.acreage,
     });
   };
 
@@ -146,6 +148,28 @@ const Consignment = () => {
             value={values?.title}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setValues({ ...values, title: e?.target?.value })
+            }
+          />
+          <p className='text-[red]'>{errors?.title}</p>
+        </div>
+        <div className='mb-[30px]'>
+          <Textbox
+            placeholder='Price'
+            name='price'
+            value={values?.price}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setValues({ ...values, price: e?.target?.value })
+            }
+          />
+          <p className='text-[red]'>{errors?.title}</p>
+        </div>
+        <div className='mb-[30px]'>
+          <Textbox
+            placeholder='Acreage'
+            name='acreage'
+            value={values?.acreage}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setValues({ ...values, acreage: e?.target?.value })
             }
           />
           <p className='text-[red]'>{errors?.title}</p>

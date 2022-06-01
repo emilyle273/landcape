@@ -120,8 +120,8 @@ const Consignment = () => {
     }
     const { lat, lng } = mapRef?.current?.location || {};
     const { district, ward} = address
-    const districtStr = districts.find((item:Option) => item?.value === district)?.name
-    const wardStr = wards.find((item:Option) => item?.value === ward)?.name
+    const districtStr = districts.find((item:Option) => item?.value === +district)?.label
+    const wardStr = wards.find((item:Option) => item?.value === +ward)?.label
 
     mutate({
       title: values?.title,
@@ -223,8 +223,9 @@ const Consignment = () => {
           />
         )}
         <button
-          className='mt-[30px] bg-orange-100 uppercase text-white w-full h-[40px] rounded-[5px]'
+          className='mt-[30px] bg-orange-400 uppercase text-white w-full h-[40px] rounded-[5px]'
           onClick={handleSubmit}
+          disabled={isLoading}
         >
           {isLoading ? <Spinner /> : 'Submit'}
         </button>

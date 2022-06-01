@@ -34,12 +34,11 @@ const ProjectSection = () => {
         <ul className='flex justify-between text-center'>
           {projects.map((item, index) => (
             <li className='w-[260px] bg-white' key={item.id}>
-              <div className='relative'>
+              <div className='relative w-[260px] h-[150px]'>
                 <Image
                   src={item.image}
                   alt={`project-${index}`}
-                  width='260'
-                  height='150'
+                  layout='fill'
                 />
                 <span className='absolute left-[50%] text-white w-[107px] text-[10px] bg-[#0096FF] p-2 block top-[100%]  translate-x-[-50%] translate-y-[-50%]'>
                   {item.city}

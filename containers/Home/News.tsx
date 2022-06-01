@@ -15,12 +15,11 @@ const NewsItem = ({ news }: { news: News }) => {
   return (
     <li className='w-[370px] border rounded-[5px] relative mb-[10px]'>
       <div className='p-2 flex justify-between'>
-        <div className='w-[112px] h-[112px] rounded-[5px]'>
+        <div className='w-[112px] h-[112px] rounded-[5px] relative'>
           <Image
             alt={`main-image-${news?._id}`}
             src={news.images?.[0] as string}
-            width="112"
-            height="112"
+            layout="fill"
           />
         </div>
         <div className='max-w-[229px]'>

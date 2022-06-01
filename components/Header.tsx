@@ -68,14 +68,13 @@ const Header = ({
           ]}
           className='justify-start'
         />
-        <Link href='/'>
+        <div className="relative w-[150px] h-[80px]">
           <Image
             src='https://skylandvietnam.vn/wp-content/uploads/2019/04/53026275_302570497072442_1683615377461870592_n.png'
             alt='logo'
-            width='150px'
-            height='83px'
+            layout="fill"
           />
-        </Link>
+        </div>
         <NavBar className='justify-end' list={navs} />
       </Container>
     </header>

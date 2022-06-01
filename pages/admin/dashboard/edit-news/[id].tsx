@@ -1,3 +1,3 @@
-import EditNews from '../add-news'
+import EditNews from '../add-news';
 
 export default EditNews;

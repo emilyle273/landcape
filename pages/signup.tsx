@@ -1,4 +1,4 @@
-import Textbox from 'components/common/Textbox';
+import Textbox from 'components/Textbox';
 import { useState } from 'react';
 import Link from 'next/link';
 import { User } from 'types';
@@ -20,8 +20,8 @@ const Signup = () => {
       NotificationManager.error(err?.response?.data?.message, null, 3000);
     },
     onSuccess: (res) => {
-      setLocalStorage('accessToken', res?.data?.data?.token)
-    }
+      setLocalStorage('accessToken', res?.data?.data?.token);
+    },
   });
 
   const [errors, setErrors] = useState<User>({
@@ -70,12 +70,22 @@ const Signup = () => {
         <p className='text-[red]'>{errors?.email}</p>
       </div>
       <div className='mb-[30px]'>
-        <Textbox placeholder='Password' type='password' name='password' onChange={handleOnChange}/>
+        <Textbox
+          placeholder='Password'
+          type='password'
+          name='password'
+          onChange={handleOnChange}
+        />
         <p className='text-[red]'>{errors?.password}</p>
-        <PasswordStrengthBar password={values?.password}/>
+        <PasswordStrengthBar password={values?.password} />
       </div>
       <div className='mb-[30px]'>
-        <Textbox placeholder='Phone' type='text' name='phone' onChange={handleOnChange}/>
+        <Textbox
+          placeholder='Phone'
+          type='text'
+          name='phone'
+          onChange={handleOnChange}
+        />
         <p className='text-[red]'>{errors?.password}</p>
       </div>
       <button

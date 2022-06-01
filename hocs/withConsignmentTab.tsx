@@ -1,7 +1,7 @@
 import React, { FC, useContext, useState } from 'react';
 import { authContext } from 'context/authContext';
 import { useRouter } from 'next/router';
-import Modal from '../components/common/Modal';
+import Modal from '../components/Modal';
 
 const withConsignmentTab = <Props extends Record<string, unknown>>(
   Component: React.ComponentType<Props>
@@ -13,13 +13,13 @@ const withConsignmentTab = <Props extends Record<string, unknown>>(
 
     const onClick = () => {
       if (!accessToken) {
-        setOpenedModal(true)
+        setOpenedModal(true);
 
         return;
       }
       push('/consignment', '', { shallow: true });
     };
-    
+
     return (
       <>
         <Component

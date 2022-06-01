@@ -1,6 +1,6 @@
-import Container from '../common/Container';
+import Container from '../../components/Container';
 import Link from 'next/link';
-import Image from 'next/image'
+import Image from 'next/image';
 
 const ProjectSection = () => {
   const projects = [
@@ -30,12 +30,17 @@ const ProjectSection = () => {
   return (
     <section className='bg-gray-200 pb-[20px]'>
       <Container>
-      <h2 className='uppercase text-[32px]'>Projects</h2>
+        <h2 className='uppercase text-[32px]'>Projects</h2>
         <ul className='flex justify-between text-center'>
           {projects.map((item, index) => (
             <li className='w-[260px] bg-white' key={item.id}>
               <div className='relative'>
-                <Image src={item.image} alt={`project-${index}`} width="260" height="150"/>
+                <Image
+                  src={item.image}
+                  alt={`project-${index}`}
+                  width='260'
+                  height='150'
+                />
                 <span className='absolute left-[50%] text-white w-[107px] text-[10px] bg-[#0096FF] p-2 block top-[100%]  translate-x-[-50%] translate-y-[-50%]'>
                   {item.city}
                 </span>
@@ -52,4 +57,4 @@ const ProjectSection = () => {
   );
 };
 
-export default ProjectSection
+export default ProjectSection;

@@ -1,11 +1,11 @@
 import { useQuery } from 'react-query';
-import Filter from 'components/home/Filter';
+import Filter from 'containers/Home/Filter';
 import { News } from 'types';
 import { getNews } from 'services/news';
 import { useState } from 'react';
-import Container from 'components/common/Container';
+import Container from 'components/Container';
 import { useRouter } from 'next/router';
-import Header from 'components/admin/Layout';
+import Header from 'containers/Admin/Layout';
 import withPrivateRoute from 'hocs/withPrivateRoute';
 
 const Dashboard = () => {
@@ -46,7 +46,10 @@ const Dashboard = () => {
           </thead>
           <tbody>
             {(data?.data?.news || []).map((item: News, index: number) => (
-              <tr className='border-b dark:border-slate-600 p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left' key={index}>
+              <tr
+                className='border-b dark:border-slate-600 p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left'
+                key={index}
+              >
                 <td>{index + 1}</td>
                 <td>{item?.title}</td>
                 <td className='truncate max-w-[200px]'>{item?.description}</td>

@@ -3,20 +3,24 @@ import { User } from 'types';
 import { getLocalStorage } from 'services/localstorage';
 
 interface AuthState {
-  accessToken: string
+  accessToken: string;
 }
 
 interface AuthContext extends AuthState {
-  setAccessToken?: (params: string) => void
+  setAccessToken?: (params: string) => void;
 }
 
 const authContext = React.createContext<AuthContext>({
-  accessToken: ""
+  accessToken: '',
 });
 
-const AuthProvider: FC<{ children: JSX.Element[] | JSX.Element }> = ({ children }) => {
-  const token = getLocalStorage('accessToken')
-  const [accessToken, setAccessToken] = useState<string>(typeof token === "string" && !!token ? token : '');
+const AuthProvider: FC<{ children: JSX.Element[] | JSX.Element }> = ({
+  children,
+}) => {
+  const token = getLocalStorage('accessToken');
+  const [accessToken, setAccessToken] = useState<string>(
+    typeof token === 'string' && !!token ? token : ''
+  );
 
   return (
     <authContext.Provider

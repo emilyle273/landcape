@@ -1,9 +1,8 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, useMemo, useState, useEffect } from 'react'
 import { Option } from "types"
 import { useQuery } from "react-query"
 import { getDistricts} from 'services/address'
-import { useMemo, useState, useEffect } from "react"
-import Textbox from "components/common/Textbox"
+import Textbox from "components/Textbox"
 import { useDebouncedCallback } from 'use-debounce'
 
 const Filter = ({ onSearch } : {onSearch: Function}) => {

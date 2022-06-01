@@ -1,11 +1,11 @@
-import Textbox from 'components/common/Textbox';
-import { useState, useContext } from 'react';
+import Textbox from 'components/Textbox';
+import { useState } from 'react';
 import Link from 'next/link';
 import { User } from 'types';
 import { useMutation } from 'react-query';
 import { login } from 'services/auth';
 import { setLocalStorage } from 'services/localstorage';
-import Spinner from 'components/common/Spinner';
+import Spinner from 'components/Spinner';
 
 import { NotificationManager } from 'react-notifications';
 import { useRouter } from 'next/router';
@@ -26,11 +26,11 @@ const Login = ({ setToken }: { setToken: Function }) => {
     onSuccess: (res) => {
       setToken?.(res?.data?.data?.token as string);
       setLocalStorage('accessToken', res?.data?.data?.token);
-      if(!!router?.query?.referer) {
-        router.push(router?.query?.referer, '', { shallow: true});
-        return
+      if (!!router?.query?.referer) {
+        router.push(router?.query?.referer, '', { shallow: true });
+        return;
       }
-      router.push('/', '', { shallow: true});
+      router.push('/', '', { shallow: true });
     },
   });
 
@@ -73,10 +73,9 @@ const Login = ({ setToken }: { setToken: Function }) => {
       <Head>
         <title>Login</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-        <meta name='og:title' content='Login' />
-        <meta name='og:description' content='Login page' />
+        <meta name='og:title' content='Login page' />
       </Head>
-      
+
       <section className='md:max-w-[50%] mx-auto mt-[200px]'>
         <div className='mb-[30px]'>
           <Textbox

@@ -1,21 +1,15 @@
-import Layout from 'components/common/Layout'
-import { NextPage } from 'next'
-import { ReactElement } from 'react'
+import Layout from 'components/Layout';
+import { NextPage } from 'next';
+import { ReactElement } from 'react';
 
-import ContactUs from 'components/contact-us'
+import ContactUs from 'containers/ContactUs';
 
 const Home: NextPage = () => {
-  return (
-    <ContactUs />
-  )
-}
+  return <ContactUs />;
+};
 
 Home.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Layout>
-      {page}
-    </Layout>
-  )
-}
+  return <Layout>{page}</Layout>;
+};
 
-export default Home
+export default Home;

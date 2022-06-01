@@ -1,4 +1,9 @@
-import React, { Component, useState, useCallback, forwardRef, useImperativeHandle } from 'react';
+import React, {
+  useState,
+  useCallback,
+  forwardRef,
+  useImperativeHandle,
+} from 'react';
 import loadable from '@loadable/component';
 
 const GoogleMapReact = loadable(() => import('google-map-react'));
@@ -6,22 +11,24 @@ const GoogleMapReact = loadable(() => import('google-map-react'));
 const GoogleMap = ({ location, draggable }, ref) => {
   const [center, setCenter] = useState({
     lat: +location?.lat,
-    lng: +location?.lng
-  })
+    lng: +location?.lng,
+  });
 
-  const loadMap = (map , maps) => {
+  const loadMap = (map, maps) => {
     let marker = new maps.Marker({
       position: center,
       map,
       draggable,
     });
 
-    maps.event.addListener(marker, 'drag', () => onDragMarket(marker), { passive: true }) 
+    maps.event.addListener(marker, 'drag', () => onDragMarket(marker), {
+      passive: true,
+    });
   };
 
   useImperativeHandle(ref, () => ({
-    location: center
-  }));
+    location: center,
+  }), [center]);
 
   const onDragMarket = useCallback((marker) => {
     setTimeout(() => {
@@ -29,12 +36,11 @@ const GoogleMap = ({ location, draggable }, ref) => {
         lat: marker.getPosition().lat(),
         lng: marker.getPosition().lng(),
       });
-
     }, 500);
-  }, [])
+  }, []);
 
   return (
-    <div className="h-[400px] w-full mt-[30px]">
+    <div className='h-[400px] w-full mt-[30px]'>
       <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyDJXPMrpL6gtbhBUSH_UUMkjB-eYJBDtf8' }}
         defaultCenter={center}
@@ -44,6 +50,6 @@ const GoogleMap = ({ location, draggable }, ref) => {
       />
     </div>
   );
-}
+};
 
 export default forwardRef(GoogleMap);

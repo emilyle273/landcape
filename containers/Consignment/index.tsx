@@ -1,16 +1,17 @@
-import { useEffect, useMemo, useState, useRef } from 'react';
+import { useEffect, useMemo, useState, useRef, useCallback } from 'react';
 import { useQuery, useMutation } from 'react-query';
 import { getDistricts } from 'services/address';
-import Textbox from 'components/common/Textbox';
+import Textbox from 'components/Textbox';
 import { Option, News } from 'types';
-import Spinner from 'components/common/Spinner';
-import Uploader from 'components/common/Uploader';
+import Spinner from 'components/Spinner';
+import Uploader from 'components/Uploader';
 import { NotificationManager } from 'react-notifications';
 import { addNews, getNewsById, editNews } from 'services/news';
 
-import Textarea from 'components/common/Textarea';
-import Map from 'components/common/Map';
+import Textarea from 'components/Textarea';
+import Map from 'components/Map';
 import { useRouter } from 'next/router';
+import { DEFAULT_LOCATION, DN_CODE } from 'constants/index';
 
 const Consignment = () => {
   const mapRef = useRef(null);
@@ -18,7 +19,7 @@ const Consignment = () => {
   const id = query?.id;
   const [errors, setErrors] = useState();
   const [address, setAddress] = useState({
-    city: '48',
+    city: DN_CODE,
     district: '',
     ward: '',
   });
@@ -99,7 +100,7 @@ const Consignment = () => {
     }
   );
 
-  const handleValidate = () => {
+  const handleValidate = useCallback(() => {
     const err = {
       title: !values?.title ? 'Please enter title' : '',
       images: !images?.length ? 'Please upload image' : '',
@@ -110,7 +111,7 @@ const Consignment = () => {
     setErrors(err);
 
     return err;
-  };
+  }, [values, images, address]);
 
   const handleSubmit = () => {
     const err = handleValidate();
@@ -163,13 +164,13 @@ const Consignment = () => {
               <select
                 className='w-[200px] border border-gray-400 h-[30px] rounded-[5px]'
                 value={address?.district}
-                onChange={(e) => {
+                onChange={useCallback((e) => {
                   setAddress({
-                    city: '48',
+                    city: DN_CODE,
                     district: e?.target?.value,
                     ward: '',
                   });
-                }}
+                }, [])}
               >
                 <option value='' key="default">Select...</option>
                 {districts?.map((item: Option) => (
@@ -181,9 +182,9 @@ const Consignment = () => {
             <div>
               <select
                 className='w-[200px] border border-gray-400 h-[30px] rounded-[5px]'
-                onChange={(e) =>
+                onChange={useCallback((e) =>
                   setAddress({ ...address, ward: e?.target?.value })
-                }
+                , [address])}
                 value={address?.ward}
               >
                 <option value='default'>Select...</option>
@@ -204,9 +205,9 @@ const Consignment = () => {
             placeholder='Description'
             name='description'
             value={values?.description}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) =>
               setValues({ ...values, description: e?.target?.value })
-            }
+            , [values])}
           />
           <p className='text-[red]'>{errors?.title}</p>
         </div>
@@ -217,12 +218,12 @@ const Consignment = () => {
             location={
               !!id
                 ? { ...values?.location }
-                : { lat: 16.004896075277347, lng: 108.19869219726561 }
+                : { lat: DEFAULT_LOCATION.lag, lng: DEFAULT_LOCATION.lng }
             }
           />
         )}
         <button
-          className='mt-[30px] bg-orange-700 uppercase text-white w-full h-[40px] rounded-[5px]'
+          className='mt-[30px] bg-orange-100 uppercase text-white w-full h-[40px] rounded-[5px]'
           onClick={handleSubmit}
         >
           {isLoading ? <Spinner /> : 'Submit'}

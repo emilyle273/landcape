@@ -1,7 +1,8 @@
 
 import { deleteLocalStorage } from "services/localstorage";
 import { useRouter } from "next/router";
-import Container from "components/common/Container";
+import Container from "components/Container";
+import { memo } from "react";
 
 const Header = () => {
   const route = useRouter()
@@ -20,5 +21,5 @@ const Header = () => {
   );
 };
 
-export default Header
+export default memo(Header)
 

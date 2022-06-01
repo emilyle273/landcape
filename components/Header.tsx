@@ -6,17 +6,26 @@ import Image from 'next/image';
 import { deleteLocalStorage } from 'services/localstorage';
 import { useRouter } from 'next/router';
 import withConsignmentTab from 'hocs/withConsignmentTab';
+import { memo } from 'react';
 
-const Header = ({ onClickConsignment, setAccessToken, accessToken}: {onClickConsignment?: () => void, setAccessToken: (s: string) => void, accessToken: string}) => {
+const Header = ({
+  onClickConsignment,
+  setAccessToken,
+  accessToken,
+}: {
+  onClickConsignment?: () => void;
+  setAccessToken?: (s: string) => void;
+  accessToken?: string;
+}) => {
   const { push } = useRouter();
 
   const navs = [
     {
       name: 'Contact us',
-      onClick:() => {
-        push('/contact')
+      onClick: () => {
+        push('/contact');
       },
-      url: '/contact'
+      url: '/contact',
     },
     ...(accessToken
       ? [
@@ -49,14 +58,13 @@ const Header = ({ onClickConsignment, setAccessToken, accessToken}: {onClickCons
               onClick: () => {
                 push('/');
               },
-              url: '/'
+              url: '/',
             },
             {
               name: 'Consignment',
               onClick: onClickConsignment,
-              url: '/consignment'
+              url: '/consignment',
             },
-            
           ]}
           className='justify-start'
         />
@@ -74,4 +82,4 @@ const Header = ({ onClickConsignment, setAccessToken, accessToken}: {onClickCons
   );
 };
 
-export default withConsignmentTab(Header);
+export default withConsignmentTab(memo(Header));

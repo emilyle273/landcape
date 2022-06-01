@@ -1,6 +1,4 @@
-
-
-export const isBrowser = typeof window !== "undefined"
+export const isBrowser = typeof window !== 'undefined';
 
 export const getLocalStorage = (key: string) => {
   return isBrowser && window.localStorage.getItem(key) !== 'undefined'
@@ -8,7 +6,10 @@ export const getLocalStorage = (key: string) => {
     : {};
 };
 
-export const setLocalStorage = (key: string, data: { [key: string]: any } | string) => {
+export const setLocalStorage = (
+  key: string,
+  data: { [key: string]: any } | string
+) => {
   isBrowser &&
     window.localStorage &&
     window.localStorage.setItem(key, JSON.stringify(data));

@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 const Spinner = () => {
   return (
     <svg
@@ -19,4 +21,4 @@ const Spinner = () => {
   );
 };
 
-export default Spinner
+export default memo(Spinner);

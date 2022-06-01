@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 interface ModalProps {
   children: JSX.Element[] | JSX.Element;
   onClose: () => void;
@@ -39,4 +41,4 @@ const Modal = ({ children, onClose }: ModalProps) => {
   );
 };
 
-export default Modal;
+export default memo(Modal);

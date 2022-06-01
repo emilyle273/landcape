@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { ReactNode, memo } from "react"
 
 interface ContainerProps {
   children: ReactNode,
@@ -11,4 +11,6 @@ const Container = ({ children, className }: ContainerProps) => {
     </div>
 }
 
-export default Container
+
+
+export default memo(Container)

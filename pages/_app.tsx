@@ -1,4 +1,4 @@
-import '../styles/globals.scss'
+import '../styles/globals.css'
 
 import 'react-notifications/lib/notifications.css';
 import { ReactElement, ReactNode } from 'react'

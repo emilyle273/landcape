@@ -1,9 +1,10 @@
-import Banner from 'components/home/Banner'
-import ProjectSection from 'components/home/ProjectsSection'
-import Layout from 'components/common/Layout'
-import { NextPage } from 'next'
-import { ReactElement } from 'react'
-import NewsSection from 'components/home/NewsSection'
+import Banner from 'containers/Home/Banner';
+import ProjectSection from 'containers/Home/ProjectsSection';
+import Layout from 'components/Layout';
+import { NextPage } from 'next';
+import { ReactElement } from 'react';
+
+import NewsSection from 'containers/Home/NewsSection';
 
 const Home: NextPage = () => {
   return (
@@ -12,26 +13,22 @@ const Home: NextPage = () => {
       <NewsSection />
       <ProjectSection />
     </>
-  )
-}
+  );
+};
 
 Home.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Layout>
-      {page}
-    </Layout>
-  )
-}
+  return <Layout>{page}</Layout>;
+};
 
 export async function getServerSideProps({ req, res }) {
   res.setHeader(
     'Cache-Control',
     'public, s-maxage=10, stale-while-revalidate=59'
-  )
+  );
 
   return {
     props: {},
-  }
+  };
 }
 
-export default Home
+export default Home;

@@ -1,5 +1,6 @@
 import RUG from 'react-upload-gallery';
 import 'react-upload-gallery/dist/style.css';
+import { memo } from 'react';
 
 const Uploader = ({ images, setImages }) => {
   return (
@@ -28,4 +29,4 @@ const Uploader = ({ images, setImages }) => {
   );
 };
 
-export default Uploader;
+export default memo(Uploader);

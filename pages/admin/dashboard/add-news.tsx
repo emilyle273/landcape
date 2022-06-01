@@ -1,18 +1,18 @@
 import { useEffect, useMemo, useState, useRef } from 'react';
 import { useQuery, useMutation } from 'react-query';
 import { getDistricts } from 'services/address';
-import Textbox from 'components/common/Textbox';
+import Textbox from 'components/Textbox';
 import { Option, News } from 'types';
-import Spinner from 'components/common/Spinner';
-import Uploader from 'components/common/Uploader';
+import Spinner from 'components/Spinner';
+import Uploader from 'components/Uploader';
 import { NotificationManager } from 'react-notifications';
 import { addNews, getNewsById, editNews } from 'services/news';
 
 import withPrivateRoute from 'hocs/withPrivateRoute';
-import Textarea from 'components/common/Textarea';
-import Map from 'components/common/Map';
+import Textarea from 'components/Textarea';
+import Map from 'components/Map';
 import { useRouter } from 'next/router';
-import Header from 'components/admin/Layout';
+import Header from 'containers/Admin/Layout';
 
 const AddNews = () => {
   const mapRef = useRef(null);
@@ -120,9 +120,11 @@ const AddNews = () => {
       return;
     }
     const { lat, lng } = mapRef?.current?.location || {};
-    const { district, ward} = address
-    const districtStr = districts.find((item:Option) => item?.value === district)?.name
-    const wardStr = wards.find((item:Option) => item?.value === ward)?.name
+    const { district, ward } = address;
+    const districtStr = districts.find(
+      (item: Option) => item?.value === district
+    )?.name;
+    const wardStr = wards.find((item: Option) => item?.value === ward)?.name;
 
     mutate({
       title: values?.title,
@@ -133,7 +135,7 @@ const AddNews = () => {
       lat,
       lng,
       description: values?.description,
-      addressInString: `${wardStr} - ${districtStr}`
+      addressInString: `${wardStr} - ${districtStr}`,
     });
   };
 
@@ -159,7 +161,9 @@ const AddNews = () => {
               value={cities?.[0]?.value}
             >
               {cities.map((item: Option) => (
-                <option value={item.value} key={item.value}>{item.label}</option>
+                <option value={item.value} key={item.value}>
+                  {item.label}
+                </option>
               ))}
             </select>
             <div>
@@ -174,9 +178,13 @@ const AddNews = () => {
                   });
                 }}
               >
-                <option value='' key="default">Select...</option>
+                <option value='' key='default'>
+                  Select...
+                </option>
                 {districts?.map((item: Option) => (
-                  <option value={item.value} key={item.value}>{item.label}</option>
+                  <option value={item.value} key={item.value}>
+                    {item.label}
+                  </option>
                 ))}
               </select>
               <p className='text-[red]'>{errors?.district}</p>
@@ -191,7 +199,9 @@ const AddNews = () => {
               >
                 <option value='default'>Select...</option>
                 {wards?.map((item: Option) => (
-                  <option value={item.value} key={item.value}>{item.label}</option>
+                  <option value={item.value} key={item.value}>
+                    {item.label}
+                  </option>
                 ))}
               </select>
               <p className='text-[red]'>{errors?.ward}</p>

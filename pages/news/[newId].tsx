@@ -25,7 +25,6 @@ const Details: NextPage = ({ data }: { data: News}) => {
 };
 
 export async function getServerSideProps({ params, res }) {
-  // console.log('req',params)
   // // Fetch data from external API
   const re = await getNewsById(params?.newId)
   res.setHeader(

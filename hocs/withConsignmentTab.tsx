@@ -21,9 +21,6 @@ const withConsignmentTab = <Props extends Record<string, unknown>>(
       push('/consignment', '', { shallow: true });
     };
 
-    console.log('isLoading', isLoading)
-
-
     if(isLoading) {
       return <Spinner />
     }

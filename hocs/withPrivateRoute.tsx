@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect } from 'react';
+import React, { FC, useContext, useEffect, Suspense } from 'react';
 import { authContext } from 'context/authContext';
 import { useRouter } from 'next/router';
 import Spinner from 'components/Spinner';
@@ -18,7 +18,7 @@ const withPrivateRoute = <Props extends Record<string, unknown>>(
     if (!accessToken && !pathname.includes('login')) {
       useRedirectToLogin();
     }
-    return <Component {...props} setToken={setAccessToken} />;
+    return <Suspense fallback={<Spinner />}><Component {...props} setToken={setAccessToken} /></Suspense>;
   };
 
   return ComponentWithPrivateRoute;

@@ -18,7 +18,6 @@ const Header = ({
   setAccessToken?: (s: string) => void;
   accessToken?: string;
 }) => {
-  console.log('accessToken', accessToken)
   const { push } = useRouter();
 
   const navs = [

@@ -1,4 +1,12 @@
-import { useEffect, useMemo, useState, useRef, useCallback } from 'react';
+import {
+  useEffect,
+  useMemo,
+  useState,
+  useRef,
+  useCallback,
+  Suspense,
+  ChangeEvent,
+} from 'react';
 import { useQuery, useMutation } from 'react-query';
 import { getDistricts } from 'services/address';
 import Textbox from 'components/Textbox';
@@ -12,6 +20,7 @@ import Textarea from 'components/Textarea';
 import Map from 'components/Map';
 import { useRouter } from 'next/router';
 import { DEFAULT_LOCATION, DN_CODE } from 'constants/index';
+import Options from 'components/Options';
 
 const Consignment = () => {
   const mapRef = useRef(null);
@@ -26,9 +35,9 @@ const Consignment = () => {
   const [images, setImages] = useState([]);
   const [values, setValues] = useState<News>({
     title: '',
-    price: '',
+    price: 0,
     acreage: '',
-    price: '',
+    price: 0,
     description: '',
   });
 
@@ -102,6 +111,8 @@ const Consignment = () => {
 
   const handleValidate = useCallback(() => {
     const err = {
+      price: !values?.price ? 'Please enter price' : '',
+      acreage: !values?.acreage ? 'Please enter acreage' : '',
       title: !values?.title ? 'Please enter title' : '',
       images: !images?.length ? 'Please upload image' : '',
       district: !address?.district ? 'Please select district' : '',
@@ -119,9 +130,11 @@ const Consignment = () => {
       return;
     }
     const { lat, lng } = mapRef?.current?.location || {};
-    const { district, ward } = address
-    const districtStr = districts.find((item:Option) => item?.value === +district)?.label
-    const wardStr = wards.find((item:Option) => item?.value === +ward)?.label
+    const { district, ward } = address;
+    const districtStr = districts.find(
+      (item: Option) => item?.value === +district
+    )?.label;
+    const wardStr = wards.find((item: Option) => item?.value === +ward)?.label;
 
     mutate({
       title: values?.title,
@@ -139,7 +152,7 @@ const Consignment = () => {
   };
 
   return (
-    <>
+    <Suspense>
       <section className='px-6 bg-white mx-auto pb-[100px]'>
         <div className='mb-[30px]'>
           <Textbox
@@ -161,61 +174,51 @@ const Consignment = () => {
               setValues({ ...values, price: e?.target?.value })
             }
           />
-          <p className='text-[red]'>{errors?.title}</p>
+          <p className='text-[red]'>{errors?.price}</p>
         </div>
         <div className='mb-[30px]'>
           <Textbox
             placeholder='Acreage'
             name='acreage'
             value={values?.acreage}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setValues({ ...values, acreage: e?.target?.value })
             }
           />
-          <p className='text-[red]'>{errors?.title}</p>
+          <p className='text-[red]'>{errors?.acreage}</p>
         </div>
         <div className='mb-[30px]'>
           <div className='flex items-baseline justify-between my-3'>
-            <select
-              className='w-[200px] border border-gray-400 h-[30px] rounded-[5px]'
-              value={cities?.[0]?.value}
-            >
-              {cities.map((item: Option) => (
-                <option value={item.value} key={item.value}>{item.label}</option>
-              ))}
-            </select>
+            <Suspense fallback={<Spinner />}>
+              <Options list={cities} value={cities?.[0]?.value} />
+            </Suspense>
             <div>
-              <select
-                className='w-[200px] border border-gray-400 h-[30px] rounded-[5px]'
-                value={address?.district}
-                onChange={useCallback((e) => {
-                  setAddress({
-                    city: DN_CODE,
-                    district: e?.target?.value,
-                    ward: '',
-                  });
-                }, [])}
-              >
-                <option value='' key="default">Select...</option>
-                {districts?.map((item: Option) => (
-                  <option value={item.value} key={item.value}>{item.label}</option>
-                ))}
-              </select>
+              <Suspense>
+                <Options
+                  list={districts}
+                  value={address?.district}
+                  onChange={useCallback((e: ChangeEvent<HTMLSelectElement>) => {
+                    setAddress({
+                      city: DN_CODE,
+                      district: e?.target?.value,
+                      ward: '',
+                    });
+                  }, [])}
+                />
+              </Suspense>
               <p className='text-[red]'>{errors?.district}</p>
             </div>
             <div>
-              <select
-                className='w-[200px] border border-gray-400 h-[30px] rounded-[5px]'
-                onChange={useCallback((e) =>
-                  setAddress({ ...address, ward: e?.target?.value })
-                , [address])}
-                value={address?.ward}
-              >
-                <option value='default'>Select...</option>
-                {wards?.map((item: Option) => (
-                  <option value={item.value} key={item.value}>{item.label}</option>
-                ))}
-              </select>
+              <Suspense>
+                <Options
+                  list={wards}
+                  onChange={useCallback(
+                    (e: ChangeEvent<HTMLSelectElement>) => setAddress({ ...address, ward: e?.target?.value }),
+                    [address]
+                  )}
+                  value={address?.ward}
+                />
+              </Suspense>
               <p className='text-[red]'>{errors?.ward}</p>
             </div>
           </div>
@@ -229,11 +232,13 @@ const Consignment = () => {
             placeholder='Description'
             name='description'
             value={values?.description}
-            onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) =>
-              setValues({ ...values, description: e?.target?.value })
-            , [values])}
+            onChange={useCallback(
+              (e: React.ChangeEvent<HTMLInputElement>) =>
+                setValues({ ...values, description: e?.target?.value }),
+              [values]
+            )}
           />
-          <p className='text-[red]'>{errors?.title}</p>
+          <p className='text-[red]'>{errors?.description}</p>
         </div>
         {((!!id && values?.location) || !id) && (
           <Map
@@ -247,15 +252,15 @@ const Consignment = () => {
           />
         )}
         <button
-          className='mt-[30px] bg-orange-400 uppercase text-white w-full h-[40px] rounded-[5px]'
+          className='mt-[30px] bg-orange-700 uppercase text-white w-full h-[40px] rounded-[5px]'
           onClick={handleSubmit}
           disabled={isLoading}
         >
           {isLoading ? <Spinner /> : 'Submit'}
         </button>
       </section>
-    </>
+    </Suspense>
   );
 };
 
-export default Consignment
+export default Consignment;

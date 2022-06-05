@@ -1,6 +1,5 @@
 import Main from 'containers/Consignment';
 import withPrivateRoute from 'hocs/withPrivateRoute';
-import { ReactElement, useEffect } from 'react';
 import { NextPage } from 'next';
 import Layout from 'components/Layout';
 import Banner from 'containers/Home/Banner';
@@ -11,11 +10,8 @@ import Head from 'next/head';
 
 const Consignment: NextPage = withPrivateRoute(() => {
   const { push } = useRouter();
-  useEffect(() => {
-    document.addEventListener('touchstart', () => {}, { passive: true });
-  }, []);
   return (
-    <>
+    <Layout>
       <Head>
         <title>Consignment</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
@@ -53,13 +49,13 @@ const Consignment: NextPage = withPrivateRoute(() => {
           <Main />
         </Container>
       </section>
-    </>
+    </Layout>
   );
 });
 
-Consignment.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>;
-};
+// Consignment.getLayout = function getLayout(page: ReactElement) {
+//   return <Layout>{page}</Layout>;
+// };
 
 export async function getInitialProps({ req, res }) {
   res.setHeader(

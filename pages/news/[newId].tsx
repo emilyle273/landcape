@@ -1,13 +1,15 @@
 import type { NextPage } from 'next';
 import Layout from 'components/Layout';
 import { NextPage } from 'next';
-import { ReactElement } from 'react';
+import { ReactElement, Suspense } from 'react';
 import Main from 'containers/Details';
 import { getNewsById } from 'services/news';
 import { News } from 'types';
+// import { useRouter } from 'next/router';
+// import { useQuery } from 'react-query';
 
 const Details: NextPage = ({ data }: { data: News}) => {
-  // const router = useRouter();
+  // const router = useRouter ();
 
   // const { data } = useQuery(
   //   ['GetNewsDetails', router?.query?.newId],
@@ -16,14 +18,10 @@ const Details: NextPage = ({ data }: { data: News}) => {
   // );
 
   return (
-    <>
+    <Layout>
       <Main land={data} />
-    </>
+    </Layout>
   );
-};
-
-Details.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>;
 };
 
 export async function getServerSideProps({ params, res }) {

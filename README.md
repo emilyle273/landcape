@@ -1,4 +1,4 @@
-# Nextjs practice
+# Next.js practice
 
 # OVERVIEW
 - This document provides a detailed estimate plan of the Nextjs practice
@@ -6,7 +6,7 @@
 # TECHNICAL
 - TypeScript
 - React
-- Nextjs
+- Next.js
 - Tailwind
 
 # TEAM SIZE

@@ -28,7 +28,7 @@ type AppPropsWithLayout = AppProps & {
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
-  const getLayout = Component.getLayout ?? ((page: NextPage) => page)
+  // const getLayout = Component.getLayout ?? ((page: NextPage) => page)
 
-  return <AuthProvider>{getLayout(<QueryClientProvider client={queryClient}><NotificationContainer /><Component {...pageProps} /></QueryClientProvider>)}</AuthProvider>
+  return <QueryClientProvider client={queryClient}><NotificationContainer /><AuthProvider><Component {...pageProps} /></AuthProvider></QueryClientProvider>
 }

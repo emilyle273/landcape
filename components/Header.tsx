@@ -1,12 +1,13 @@
-import Link from 'next/link';
-
+import { memo, Suspense, lazy } from 'react';
 import Container from './Container';
-import NavBar from './NavBar';
+// import NavBar from './NavBar';
 import Image from 'next/image';
 import { deleteLocalStorage } from 'services/localstorage';
 import { useRouter } from 'next/router';
 import withConsignmentTab from 'hocs/withConsignmentTab';
-import { memo } from 'react';
+import Spinner from './Spinner';
+
+const NavBar = lazy(() => import('./NavBar'));
 
 const Header = ({
   onClickConsignment,
@@ -17,6 +18,7 @@ const Header = ({
   setAccessToken?: (s: string) => void;
   accessToken?: string;
 }) => {
+  console.log('accessToken', accessToken)
   const { push } = useRouter();
 
   const navs = [
@@ -51,34 +53,38 @@ const Header = ({
   return (
     <header className='h-[83px]'>
       <Container className=' flex items-center justify-between'>
-        <NavBar
-          list={[
-            {
-              name: 'Home',
-              onClick: () => {
-                push('/');
+        <Suspense fallback={<Spinner />}>
+          <NavBar
+            list={[
+              {
+                name: 'Home',
+                onClick: () => {
+                  push('/');
+                },
+                url: '/',
               },
-              url: '/',
-            },
-            {
-              name: 'Consignment',
-              onClick: onClickConsignment,
-              url: '/consignment',
-            },
-          ]}
-          className='justify-start'
-        />
-        <div className="relative w-[150px] h-[80px]">
+              {
+                name: 'Consignment',
+                onClick: onClickConsignment,
+                url: '/consignment',
+              },
+            ]}
+            className='justify-start'
+          />
+        </Suspense>
+        <div className='relative w-[150px] h-[80px]'>
           <Image
             src='https://skylandvietnam.vn/wp-content/uploads/2019/04/53026275_302570497072442_1683615377461870592_n.png'
             alt='logo'
-            layout="fill"
+            layout='fill'
           />
         </div>
-        <NavBar className='justify-end' list={navs} />
+        <Suspense fallback={<Spinner />}>
+          <NavBar className='justify-end' list={navs} />
+        </Suspense>
       </Container>
     </header>
   );
 };
 
-export default withConsignmentTab(memo(Header));
+export default withConsignmentTab(Header);

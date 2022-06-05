@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className='bg-black py-[50px]'>
       <Container className=' flex items-top justify-between'>
         <div>
-          <Link href='/'>
+          {/* <Link href='/'> */}
             {/* <span className='inline-block relative'> */}
             <Image
               src='https://skylandvietnam.vn/wp-content/uploads/2019/04/53026275_302570497072442_1683615377461870592_n.png'
@@ -18,20 +18,20 @@ const Footer = () => {
               height='83px'
             />
             {/* </span> */}
-          </Link>
+          {/* </Link> */}
           <p className='text-white'>LANDCAPE - Real estate information</p>
-          <p className='text-[10px] text-gray-500 py-2'>
+          <p className='text-[10px] text-gray-500 py-2' key="Office">
             <i className='fa-light fa-phone text-orange-700'></i>Office: Da Nang
           </p>
-          <p className='text-[10px] text-gray-500 py-2'>
+          <p className='text-[10px] text-gray-500 py-2' key="Hotline">
             <i className='fa-light fa-phone text-orange-700'></i>Hotline: +84
             906116559
           </p>
-          <p className='text-[10px] text-gray-500 py-2'>
+          <p className='text-[10px] text-gray-500 py-2' key="email">
             <i className='fa-light fa-envelop text-orange-700'></i>Email:
             doanlinh@gmail.com
           </p>
-          <p className='text-[10px] text-gray-500 py-2'>
+          <p className='text-[10px] text-gray-500 py-2' key="web">
             <i className='fa-light fa-globe text-orange-700'></i>Website:
             https://landcape.com
           </p>
@@ -39,16 +39,16 @@ const Footer = () => {
         <div>
           <p className='text-white'>FAST CONNECTION</p>
           <ul className='text-gray-500 text-[10px]'>
-            <li className='border-b border-dotted border-gray-400 py-2'>
+            <li className='border-b border-dotted border-gray-400 py-2' key="introduction">
               Introduction
             </li>
-            <li className='border-b border-dotted border-gray-400 py-2'>
+            <li className='border-b border-dotted border-gray-400 py-2' key="sell">
               Sell and buy lands
             </li>
-            <li className='border-b border-dotted border-gray-400 py-2'>
+            <li className='border-b border-dotted border-gray-400 py-2' key="Lease">
               Lease
             </li>
-            <li className='py-3'>Real estate consignment</li>
+            <li className='py-3' key="Real">Real estate consignment</li>
           </ul>
         </div>
         <div className='flex flex-col items-baseline'>

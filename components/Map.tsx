@@ -3,10 +3,12 @@ import React, {
   useCallback,
   forwardRef,
   useImperativeHandle,
+  lazy,
+  Suspense,
 } from 'react';
-import loadable from '@loadable/component';
+import Spinner from './Spinner';
 
-const GoogleMapReact = loadable(() => import('google-map-react'));
+const GoogleMapReact = lazy(() => import('google-map-react'));
 
 const GoogleMap = ({ location, draggable }, ref) => {
   const [center, setCenter] = useState({
@@ -26,9 +28,13 @@ const GoogleMap = ({ location, draggable }, ref) => {
     });
   };
 
-  useImperativeHandle(ref, () => ({
-    location: center,
-  }), [center]);
+  useImperativeHandle(
+    ref,
+    () => ({
+      location: center,
+    }),
+    [center]
+  );
 
   const onDragMarket = useCallback((marker) => {
     setTimeout(() => {
@@ -41,13 +47,15 @@ const GoogleMap = ({ location, draggable }, ref) => {
 
   return (
     <div className='h-[400px] w-full mt-[30px]'>
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyDJXPMrpL6gtbhBUSH_UUMkjB-eYJBDtf8' }}
-        defaultCenter={center}
-        defaultZoom={8}
-        yesIWantToUseGoogleMapApiInternals
-        onGoogleApiLoaded={({ map, maps }) => loadMap(map, maps)}
-      />
+      <Suspense fallback={<Spinner />}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: 'AIzaSyDJXPMrpL6gtbhBUSH_UUMkjB-eYJBDtf8' }}
+          defaultCenter={center}
+          defaultZoom={8}
+          yesIWantToUseGoogleMapApiInternals
+          onGoogleApiLoaded={({ map, maps }) => loadMap(map, maps)}
+        />
+      </Suspense>
     </div>
   );
 };

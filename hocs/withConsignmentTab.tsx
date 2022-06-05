@@ -1,14 +1,15 @@
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, useContext, useState, ComponentType } from 'react';
 import { authContext } from 'context/authContext';
 import { useRouter } from 'next/router';
 import Modal from '../components/Modal';
+import Spinner from 'components/Spinner';
 
 const withConsignmentTab = <Props extends Record<string, unknown>>(
-  Component: React.ComponentType<Props>
+  Component: ComponentType<Props>
 ) => {
   const ComponentWithPrivateTab: FC<Props> = (props) => {
     const { push } = useRouter();
-    const { accessToken, setAccessToken } = useContext(authContext);
+    const { accessToken, setAccessToken, isLoading } = useContext(authContext);
     const [openedModal, setOpenedModal] = useState(false);
 
     const onClick = () => {
@@ -20,6 +21,13 @@ const withConsignmentTab = <Props extends Record<string, unknown>>(
       push('/consignment', '', { shallow: true });
     };
 
+    console.log('isLoading', isLoading)
+
+
+    if(isLoading) {
+      return <Spinner />
+    }
+    
     return (
       <>
         <Component

@@ -60,6 +60,9 @@ const Filter = ({ onSearch }: { onSearch: Function }) => {
     <div className='p-6 bg-white rounded-tr-[5px] mb-1'>
       <Textbox
         id='search-input'
+        placeholder='Search'
+        type='text'
+        name='search'
         defaultValue={q}
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           debouncedSearch(e?.target?.value)

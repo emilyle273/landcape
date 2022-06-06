@@ -103,7 +103,7 @@ const Consignment = () => {
         NotificationManager.error(err?.response?.data?.message, null, 3000);
       },
       onSuccess: () => {
-        push('/admin/dashboard');
+        push('/');
       },
     }
   );

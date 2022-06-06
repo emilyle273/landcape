@@ -29,7 +29,7 @@ export async function getServerSideProps({ params, res }) {
   const re = await getNewsById(params?.newId)
   res.setHeader(
     'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
+    'public, max-age=31536000, immutable'
   );
 
   return { props: { data: re?.data?.data?.blog } }

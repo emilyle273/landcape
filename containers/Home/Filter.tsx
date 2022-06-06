@@ -27,7 +27,7 @@ const Filter = ({ onSearch }: { onSearch: Function }) => {
     onSearch({ city, district: currentDist, ward, q: value });
   }, 500);
 
-  const { data } = useQuery(['GetDistricts', city], getDistricts);
+  const { data } = useQuery('GetDistricts', getDistricts);
   const province = data?.data?.province || {};
 
   const cities = useMemo(

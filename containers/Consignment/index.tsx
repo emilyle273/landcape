@@ -63,9 +63,7 @@ const Consignment = () => {
     }
   );
 
-  const { data } = useQuery(['GetDistricts', address?.city], () =>
-    getDistricts({ code: address?.city })
-  );
+  const { data } = useQuery('GetDistricts',getDistricts);
   const province = data?.data?.province || {};
 
   const cities = useMemo(

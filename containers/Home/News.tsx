@@ -20,7 +20,7 @@ const NewsItem = ({ news }: { news: News }) => {
             alt={`main-image-${news?._id}`}
             src={news.images?.[0] as string}
             layout='fill'
-            objectFit='contain'
+            objectFit='cover'
           />
         </div>
         <div className='max-w-[229px]'>

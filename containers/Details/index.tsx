@@ -1,4 +1,4 @@
-import { memo } from 'React';
+import { memo } from 'react';
 import Container from 'components/Container';
 import Banner from './Banner';
 import { News } from 'types';

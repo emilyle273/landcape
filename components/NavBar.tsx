@@ -15,10 +15,10 @@ const Menu = ({ list, className }: MenuProps) => {
   const { pathname } = useRouter();
 
   return (
-    <ul className={`flex w-[40%] ${className}`}>
+    <ul className={`flex md:w-[40%] w-[50%] ${className}`}>
       {list.map((item) => (
         <li
-          className={`cursor-pointer black uppercase text-base mx-[20px] ${
+          className={`cursor-pointer black uppercase text-xs md:text-base md:mx-[20px] ${
             pathname === item.url ? 'text-blue-300' : ''
           }`}
           key={item.name}

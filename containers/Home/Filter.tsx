@@ -64,7 +64,7 @@ const Filter = ({ onSearch }: { onSearch: Function }) => {
           debouncedSearch(e?.target?.value)
         }
       />
-      <div className='flex items-center justify-between my-3'>
+      <div className='flex flex-wrap w-full items-center justify-between my-3'>
         <Suspense fallback={<Spinner />}>
           <Options list={cities} value={cities?.[0]?.value} />
         </Suspense>

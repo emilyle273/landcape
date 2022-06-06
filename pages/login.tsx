@@ -9,7 +9,6 @@ import Spinner from 'components/Spinner';
 
 import { NotificationManager } from 'react-notifications';
 import { useRouter } from 'next/router';
-import withPrivateRoute from 'hocs/withPrivateRoute';
 import Head from 'next/head';
 
 const Login = ({ setToken }: { setToken: Function }) => {
@@ -74,6 +73,7 @@ const Login = ({ setToken }: { setToken: Function }) => {
         <title>Login</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <meta name='og:title' content='Login page' />
+        <meta name='description' property='og:description' content='Login page' key='Skyland' />
       </Head>
 
       <section className='md:max-w-[50%] mx-auto mt-[200px]'>
@@ -114,4 +114,4 @@ const Login = ({ setToken }: { setToken: Function }) => {
   );
 };
 
-export default withPrivateRoute(Login);
+export default Login;

@@ -6,7 +6,7 @@ import { memo } from 'react';
 const Footer = () => {
   return (
     <footer className='bg-black py-[50px]'>
-      <Container className=' flex items-top justify-between'>
+      <Container className=' flex-wrap flex items-top md:justify-between justify-center'>
         <div>
           {/* <Link href='/'> */}
             {/* <span className='inline-block relative'> */}

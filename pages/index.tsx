@@ -16,10 +16,6 @@ const Home: NextPage = () => {
   );
 };
 
-// Home.getLayout = function getLayout(page: ReactElement) {
-//   return <Layout>{page}</Layout>;
-// };
-
 export async function getServerSideProps({ req, res }) {
   res.setHeader(
     'Cache-Control',

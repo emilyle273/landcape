@@ -71,11 +71,12 @@ const Header = ({
             className='justify-start'
           />
         </Suspense>
-        <div className='relative w-[150px] h-[80px]'>
+        <div className='relative w-[150px] h-[80px] md:block hidden'>
           <Image
             src='https://skylandvietnam.vn/wp-content/uploads/2019/04/53026275_302570497072442_1683615377461870592_n.png'
             alt='logo'
             layout='fill'
+            priority
           />
         </div>
         <Suspense fallback={<Spinner />}>

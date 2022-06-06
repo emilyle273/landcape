@@ -1,5 +1,5 @@
 import Textbox from 'components/Textbox';
-import { useState } from 'react';
+import { useState, useCallback, } from 'react';
 import Link from 'next/link';
 import { User } from 'types';
 import { useMutation } from 'react-query';
@@ -38,16 +38,16 @@ const Login = ({ setToken }: { setToken: Function }) => {
     password: '',
   });
 
-  const handleOnChange = (event: Event & { target: HTMLInputElement }) => {
+  const handleOnChange = useCallback((event: Event & { target: HTMLInputElement }) => {
     const { value, name } = event?.target;
 
     setValues({
       ...values,
       [name]: value,
     } as User);
-  };
+  }, [values]);
 
-  const handleValidate = () => {
+  const handleValidate = useCallback(() => {
     const { email, password } = values;
     const err = {
       email: email ? '' : 'Email is required.',
@@ -58,14 +58,14 @@ const Login = ({ setToken }: { setToken: Function }) => {
     });
 
     return err;
-  };
+  }, [values]);
 
-  const handleLogin = () => {
+  const handleLogin = useCallback(() => {
     if (!!handleValidate()?.email || !!handleValidate()?.password) {
       return;
     }
     mutate({ ...values });
-  };
+  }, [values, handleValidate]);
 
   return (
     <>

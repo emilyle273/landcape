@@ -13,7 +13,7 @@ const NewsItem = ({ news }: { news: News }) => {
   });
 
   return (
-    <li className='w-[370px] border rounded-[5px] relative mb-[10px]'>
+    <article className='w-[370px] border rounded-[5px] relative mb-[10px]'>
       <div className='p-2 flex justify-between'>
         <div className='w-[112px] h-[112px] rounded-[5px] relative'>
           <Image
@@ -48,7 +48,7 @@ const NewsItem = ({ news }: { news: News }) => {
               <div className='relative w-[20px] height-[20px]'>
                 <Image src='/icons/map.svg' layout='fill' alt='map-icon' />
               </div>
-              <span>{news.addressInString}</span>
+              <address>{news.addressInString}</address>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@ const NewsItem = ({ news }: { news: News }) => {
       <span className='top-0 left-0 py-[3px] px-[6px] text-[10px] uppercase bg-red-700 text-white absolute rounded-[5px] block'>
         Hot
       </span>
-    </li>
+    </article>
   );
 };
 

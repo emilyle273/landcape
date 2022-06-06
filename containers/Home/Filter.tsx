@@ -5,6 +5,7 @@ import {
   useEffect,
   Suspense,
   lazy,
+  memo
 } from 'react';
 
 import { useQuery } from 'react-query';
@@ -89,4 +90,4 @@ const Filter = ({ onSearch }: { onSearch: Function }) => {
   );
 };
 
-export default Filter;
+export default memo(Filter);

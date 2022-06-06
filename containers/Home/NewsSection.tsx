@@ -1,4 +1,4 @@
-import { useState, Suspense, lazy } from 'react';
+import { useState, Suspense, lazy, memo } from 'react';
 import { useRouter } from 'next/router';
 import Container from 'components/Container';
 import { useQuery } from 'react-query';
@@ -61,4 +61,4 @@ const NewsSection = withConsignmentTab(
   }
 );
 
-export default NewsSection;
+export default memo(NewsSection);

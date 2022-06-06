@@ -7,7 +7,7 @@ interface ProjectProps {
 }
 
 const Project = ({ item }: ProjectProps) => {
-  <li className='w-[260px] bg-white' key={item.id}>
+  <article className='w-[260px] bg-white' key={item.id}>
     <div className='relative w-[260px] h-[150px]'>
       <Image
         src={item.image}
@@ -22,7 +22,7 @@ const Project = ({ item }: ProjectProps) => {
     <p className='border-t border-gray-400 py-3 text-[10px] text-orange-700'>
       <Link href={`/news/${item?.id}`}>See details</Link>
     </p>
-  </li>
+  </article>
 }
 
 export default memo<ProjectProps>(Project) 

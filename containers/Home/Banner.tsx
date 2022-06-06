@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import Image from 'next/image'
 
 const Banner = () => {
@@ -6,4 +7,4 @@ const Banner = () => {
   </div>
 }
 
-export default Banner
+export default memo(Banner)

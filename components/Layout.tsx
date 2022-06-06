@@ -12,7 +12,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <meta name='description' property='og:description' content='Skyland' key='Skyland' />
       </Head>
       <Header />
-      <main>{children}</main>
+      {children}
       <Footer />
     </>
   );

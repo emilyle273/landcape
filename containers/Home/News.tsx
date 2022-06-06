@@ -23,10 +23,10 @@ const NewsItem = ({ news }: { news: News }) => {
           />
         </div>
         <div className='max-w-[229px]'>
-          <p className='uppercase text-blue-400 text-sm'>
+          <p className='uppercase text-[blue] text-sm'>
             <Link href={`/news/${news?._id}`}>{news.title}</Link>
           </p>
-          <p className='flex text-[10px] text-gray-400'>
+          <p className='flex text-[10px] text-gray-800'>
             <span className='pr-[20px]'>{news.createAt}</span>
           </p>
           <p className='text-xs'>{news.description}</p>
@@ -43,7 +43,7 @@ const NewsItem = ({ news }: { news: News }) => {
           </p>
         </div>
       </div>
-      <span className='top-0 left-0 py-[3px] px-[6px] text-[10px] uppercase bg-red-500 text-white absolute rounded-[5px] block'>
+      <span className='top-0 left-0 py-[3px] px-[6px] text-[10px] uppercase bg-red-700 text-white absolute rounded-[5px] block'>
         Hot
       </span>
     </li>

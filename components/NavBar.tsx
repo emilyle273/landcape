@@ -19,7 +19,7 @@ const Menu = ({ list, className }: MenuProps) => {
       {list.map((item) => (
         <li
           className={`cursor-pointer black uppercase text-xs md:text-base md:mx-[20px] ${
-            pathname === item.url ? 'text-blue-300' : ''
+            pathname === item.url ? 'text-[blue]' : ''
           }`}
           key={item.name}
           onClick={item?.onClick}

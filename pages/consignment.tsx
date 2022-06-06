@@ -6,22 +6,11 @@ import Banner from 'containers/Home/Banner';
 import Container from 'components/Container';
 import Tabs from 'containers/Home/Tabs';
 import { useRouter } from 'next/router';
-import Head from 'next/head';
 
 const Consignment: NextPage = withPrivateRoute(() => {
   const { push } = useRouter();
   return (
     <Layout>
-      <Head>
-        <title>Consignment</title>
-        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-        <meta property='og:title' content='Consignment' key='title' />
-        <meta
-          property='og:description'
-          content='Consignment'
-          key='description'
-        />
-      </Head>
       <Banner />
       <section className='bg-gray-200 relative w-full pb-[30px]'>
         <Container className=' z-[11] absolute left-[50%] top-[-100px] translate-x-[-50%]'>

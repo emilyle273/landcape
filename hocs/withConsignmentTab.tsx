@@ -42,7 +42,7 @@ const withConsignmentTab = <Props extends Record<string, unknown>>(
                 onClick={() => {
                   push('/login?referer=/consignment');
                 }}
-                className='mt-[30px] bg-orange-700 uppercase text-white w-[105px] h-[30px] rounded-[5px]'
+                className='mt-[30px] bg-orange-700 uppercase text-white w-[105px] lg:h-[30px] h-[48px] rounded-[5px]'
               >
                 OK
               </button>

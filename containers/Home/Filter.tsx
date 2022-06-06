@@ -80,7 +80,7 @@ const Filter = ({ onSearch }: { onSearch: Function }) => {
           <Options list={wards} onChange={(e: ChangeEvent<HTMLSelectElement>) => setWard(e?.target?.value)} />
         </Suspense>
         <button
-          className='bg-orange-700 uppercase text-white w-[105px] h-[30px] rounded-[5px]'
+          className='bg-orange-700 uppercase text-white w-[105px] lg:h-[30px] h-[48px] rounded-[5px]'
           onClick={() => onSearch({ city, district: currentDist, ward, q })}
         >
           Search

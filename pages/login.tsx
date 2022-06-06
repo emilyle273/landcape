@@ -98,7 +98,7 @@ const Login = ({ setToken }: { setToken: Function }) => {
         </div>
 
         <button
-          className='bg-orange-700 uppercase text-white w-full h-[40px] rounded-[5px]'
+          className='bg-orange-700 uppercase text-white w-full lg:h-[30px] h-[48px] rounded-[5px]'
           onClick={handleLogin}
         >
           {isLoading ? <Spinner /> : 'Login'}

@@ -29,11 +29,11 @@ const ProjectSection = () => {
 
   const renderList = useMemo(
     () => (
-      <ul className='flex justify-between text-center flex-wrap'>
+      <div className='flex justify-between text-center flex-wrap'>
         {projects.map((item, index) => (
           <ProjectItem item={item} key={index} />
         ))}
-      </ul>
+      </div>
     ),
     [projects]
   );

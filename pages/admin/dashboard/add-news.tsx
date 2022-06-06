@@ -157,7 +157,7 @@ const AddNews = () => {
         <div className='mb-[30px]'>
           <div className='flex items-baseline justify-between my-3'>
             <select
-              className='w-[200px] border border-gray-400 h-[30px] rounded-[5px]'
+              className='w-[200px] border border-gray-400 lg:h-[30px] h-[48px] rounded-[5px]'
               value={cities?.[0]?.value}
             >
               {cities.map((item: Option) => (
@@ -168,7 +168,7 @@ const AddNews = () => {
             </select>
             <div>
               <select
-                className='w-[200px] border border-gray-400 h-[30px] rounded-[5px]'
+                className='w-[200px] border border-gray-400 lg:h-[30px] h-[48px] rounded-[5px]'
                 value={address?.district}
                 onChange={(e) => {
                   setAddress({
@@ -191,7 +191,7 @@ const AddNews = () => {
             </div>
             <div>
               <select
-                className='w-[200px] border border-gray-400 h-[30px] rounded-[5px]'
+                className='w-[200px] border border-gray-400 lg:h-[30px] h-[48px] rounded-[5px]'
                 onChange={(e) =>
                   setAddress({ ...address, ward: e?.target?.value })
                 }
@@ -235,7 +235,7 @@ const AddNews = () => {
           />
         )}
         <button
-          className='mt-[30px] bg-orange-700 uppercase text-white w-full h-[40px] rounded-[5px]'
+          className='mt-[30px] bg-orange-700 uppercase text-white w-full lg:h-[30px] h-[48px] rounded-[5px]'
           onClick={handleSubmit}
         >
           {isLoading ? <Spinner /> : 'Submit'}

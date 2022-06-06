@@ -1,6 +1,6 @@
-import { memo, useMemo } from 'react';
-import Container from '../../components/Container';
-import ProjectItem from './ProjectItem';
+import { memo } from 'react';
+import Container from 'components/Container';
+import ProjectList from './ProjectList';
 
 const projects = [
   {
@@ -26,23 +26,12 @@ const projects = [
   },
 ];
 
-const ProjectList = memo(() => {
-  return (
-    <div className='flex justify-between text-center flex-wrap'>
-      {projects.map((item, index) => (
-        <ProjectItem item={item} key={index} />
-      ))}
-    </div>
-  )
-})
-
 const ProjectSection = () => {
-  
   return (
     <section className='bg-gray-200 pb-[20px]'>
       <Container>
         <h2 className='uppercase text-[32px]'>Projects</h2>
-        <ProjectList />
+        <ProjectList list={projects} />
       </Container>
     </section>
   );

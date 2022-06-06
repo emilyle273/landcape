@@ -12,4 +12,4 @@ const Textbox = ({ ...rest }) => {
   );
 };
 
-export default  memo(Textbox);
+export default memo(Textbox);

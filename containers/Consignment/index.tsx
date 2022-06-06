@@ -35,9 +35,8 @@ const Consignment = () => {
   const [images, setImages] = useState([]);
   const [values, setValues] = useState<News>({
     title: '',
-    price: 0,
+    price: '',
     acreage: '',
-    price: 0,
     description: '',
   });
 

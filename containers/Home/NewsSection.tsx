@@ -49,7 +49,7 @@ const NewsSection = withConsignmentTab(
           </Suspense>
           <Filter onSearch={setSearch} />
         </Container>
-        <Container className=' bg-transparent md:pt-[60px] pt-[125px]'>
+        <Container className=' bg-transparent md:pt-[60px] pt-[180px]'>
           <div className=' bg-white p-6 rounded-[5px]'>
             <Suspense fallback={<Spinner />}>
               <NewsList list={data?.data?.news || []} />

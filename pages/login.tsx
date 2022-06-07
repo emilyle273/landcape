@@ -65,7 +65,7 @@ const Login = ({ setToken }: { setToken: Function }) => {
       return;
     }
     mutate({ ...values });
-  }, [values, handleValidate]);
+  }, [values, handleValidate, mutate]);
 
   return (
     <>

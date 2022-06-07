@@ -1,16 +1,20 @@
+import { memo, Suspense, lazy } from 'react';
 import Container from '../Container';
-import { memo } from 'react';
-import Left from './Left';
-import Center from './Center';
-import Right from './Right';
+import Spinner from 'components/Spinner';
+
+const Left = lazy(() => import('./Left'))
+const Center = lazy(() => import('./Center'))
+const Right = lazy(() => import('./Right'))
 
 const Footer = () => {
   return (
     <footer className='bg-black py-[50px]'>
       <Container className=' flex-wrap flex items-top md:justify-between justify-center'>
-        <Left />
-        <Center />
-        <Right />
+        <Suspense fallback={<Spinner />}>
+          <Left />
+          <Center />
+          <Right />
+        </Suspense>
       </Container>
     </footer>
   );

@@ -87,4 +87,4 @@ const Header = ({
   );
 };
 
-export default withConsignmentTab(Header);
+export default withConsignmentTab(memo(Header));

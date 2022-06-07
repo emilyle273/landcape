@@ -1,7 +1,9 @@
 import Header from './Header';
-import Footer from './Footer';
-import { ReactNode, memo } from 'react';
+import { ReactNode, memo, lazy, Suspense } from 'react';
 import Head from 'next/head';
+import Spinner from './Spinner';
+
+const Footer = lazy(() => import('./Footer'))
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
@@ -13,7 +15,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
       </Head>
       <Header />
       {children}
-      <Footer />
+      <Suspense fallback={<Spinner />}>
+        <Footer />
+      </Suspense>
     </>
   );
 }

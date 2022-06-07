@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 
-import ProjectSection from 'containers/Home/ProjectsSection';
 import Layout from 'components/Layout';
 
 import dynamic from 'next/dynamic';
@@ -13,7 +12,6 @@ const Home: NextPage = () => {
     <Layout>
       <Banner />
       <NewsSection />
-      <ProjectSection />
     </Layout>
   );
 };

@@ -39,7 +39,7 @@ a {
   background-position: center;
 }
 
-.news-item:first-child {
+/* .news-item:first-child {
   display: none ;
 }
 
@@ -47,4 +47,4 @@ a {
   .news-item:first-child {
     display: block;
   }
-}
+} */

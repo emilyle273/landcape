@@ -1,7 +1,6 @@
 import { memo } from 'react';
-import Link from 'next/link';
 
-const Center = memo(() => (
+const CenterPart = () => (
   <div>
     <p className='text-white'>FAST CONNECTION</p>
     <ul className='text-gray-500 text-[10px]'>
@@ -22,6 +21,6 @@ const Center = memo(() => (
       </li>
     </ul>
   </div>
-));
+)
 
-export default Center;
+export default memo(CenterPart);

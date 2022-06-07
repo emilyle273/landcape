@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-const Right = memo(() => (
+const Right = () => (
   <div className='flex flex-col items-baseline'>
     <p className='text-white mb-3'>CONTACT</p>
     <input
@@ -24,6 +24,6 @@ const Right = memo(() => (
       Send out
     </button>
   </div>
-));
+)
 
-export default Right;
+export default memo(Right);

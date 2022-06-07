@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import Link from 'next/link';
 
-const Left = memo(() => (
+const LeftPart = () => (
   <div>
     <p className='text-white'>LANDCAPE - Real estate information</p>
     <address className='text-[10px] text-gray-500 py-2' key='Office'>
@@ -20,6 +20,6 @@ const Left = memo(() => (
       <Link href='https://landcape.com'>https://landcape.com</Link>
     </p>
   </div>
-));
+);
 
-export default Left;
+export default memo(LeftPart)

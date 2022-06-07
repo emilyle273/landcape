@@ -103,12 +103,12 @@ const Login = ({ setToken }: { setToken: Function }) => {
         >
           {isLoading ? <Spinner /> : 'Login'}
         </button>
-        <p className='mt-[10px] text-right !text-gray-800'>
+        <span className='mt-[10px] text-right !text-gray-800 block'>
           Don&apos;t have a account{' '}
           <Link href='/signup'>
             <span className='!text-orange-700'>Signup</span>
           </Link>{' '}
-        </p>
+        </span>
       </section>
     </>
   );

@@ -35,6 +35,7 @@ const nextConfig = {
           './pages/**/*.{js,jsx,ts,tsx}',
           './components/**/*.{js,jsx,ts,tsx}',
           './containers/**/*.{js,jsx,ts,tsx}',
+          './styles/**/*.{css}',
         ],
         defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
         safelist: ['html', 'body'],

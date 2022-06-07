@@ -2,7 +2,6 @@
 
 const nextConfig = {
   productionBrowserSourceMaps: true,
-  compress: false,
   // reactStrictMode: true,
   trailingSlash: true,
   typescript: {

@@ -13,7 +13,7 @@ const NewsItem = ({ news }: { news: News }) => {
   });
 
   return (
-    <article className='w-[370px] border rounded-[5px] relative mb-[10px]'>
+    <article className='w-[370px] border rounded-[5px] relative mb-[10px] news-item'>
       <div className='p-2 flex justify-between'>
         <div className='w-[112px] h-[112px] rounded-[5px] relative'>
           <Image

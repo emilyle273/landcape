@@ -1,8 +1,10 @@
 import { NextPage } from 'next';
 
-import Banner from 'containers/Home/Banner';
 import ProjectSection from 'containers/Home/ProjectsSection';
 import Layout from 'components/Layout';
+
+import dynamic from 'next/dynamic';
+const Banner = dynamic(() => import('containers/Home/Banner'))
 
 import NewsSection from 'containers/Home/NewsSection';
 

@@ -1,16 +1,19 @@
 import { NextPage } from 'next';
+import { lazy, Suspense } from 'react';
 
 import Layout from 'components/Layout';
 
-import dynamic from 'next/dynamic';
-const Banner = dynamic(() => import('containers/Home/Banner'))
+const Banner = lazy(() => import('containers/Home/Banner'))
 
 import NewsSection from 'containers/Home/NewsSection';
+import Spinner from 'components/Spinner';
 
 const Home: NextPage = () => {
   return (
     <Layout>
-      <Banner />
+      <Suspense fallback={<Spinner />}>
+        <Banner />
+      </Suspense>
       <NewsSection />
     </Layout>
   );

@@ -40,12 +40,11 @@ a {
 }
 
 .news-item:first-child {
-  visibility: hidden;
+  display: none ;
 }
-
 
 @media only screen and (min-width: 600px) {
   .news-item:first-child {
-    visibility: visible;
-  }  
+    display: block;
+  }
 }

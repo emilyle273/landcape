@@ -40,8 +40,14 @@ a {
 }
 
 .banner-home {
-  background-image: url('../public/banner.webp');
+  background-image: url('../public/banner-mobile.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .banner-home {
+    background-image: url('../public/banner.webp');
+  }
 }

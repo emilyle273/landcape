@@ -14,12 +14,12 @@ const Details = ({ land }: { land: News }) => {
           <h2 className='text-xl text-center text-white uppercase mb-[20px]'>
             {land?.title}
           </h2>
-          <div className="w-full h-[auto]">
+          <div className="w-full relative">
             <Image layout="fill" objectFit="contain" src={land?.image?.[0]} alt='detail-1'/>
           </div>
           <img className='w-full' src={land?.image?.[0]} alt='detail-1' />
           <p className='my-[30px]'>{land?.description}</p>
-          <div className="w-full h-[auto]">
+          <div className="w-full relative">
             <Image layout="fill" objectFit="contain" src={land?.image?.[1]} alt='detail-1'/>
           </div>
           {land?.location && (

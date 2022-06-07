@@ -30,7 +30,7 @@ const ProjectSection = () => {
   return (
     <section className='bg-gray-200 pb-[20px]'>
       <Container>
-        <h2 className='uppercase text-[32px]'>Projects</h2>
+        <p className='uppercase text-[32px]'>Projects</p>
         <ProjectList list={projects} />
       </Container>
     </section>
